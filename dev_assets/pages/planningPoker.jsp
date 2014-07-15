@@ -20,9 +20,16 @@
     <div id="planningPoker" class="content">
         <h1>Planning poker</h1>
 
-        <div class="panel panel-default">
+        <div class="panel panel-default cards">
             <div class="panel-heading">Planning poker</div>
             <div class="panel-body">
+                <div class="cardsChoose">
+                    <button class="btn btn-default">?</button>
+                    <button class="btn btn-default">?</button>
+                    <button class="btn btn-default">?</button>
+                    <button class="btn btn-default">?</button>
+                    <button class="btn btn-default">?</button>
+                </div>
                 <div class="cardsSelection">
                     <button class="btn btn-primary">0</button>
                     <button class="btn btn-primary">0.5</button>

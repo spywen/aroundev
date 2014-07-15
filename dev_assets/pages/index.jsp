@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" href="<%=request.getContextPath()%>/app/img/favicon.png" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/css/boostrap-flatly.css"/>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/css/style.css"/>
+
 </head>
 <body>
     <jsp:include page="menu.jsp"/>

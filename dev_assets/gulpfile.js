@@ -1,6 +1,8 @@
 /**
  * Created by laurent on 06/07/2014.
  */
+/*https://www.youtube.com/watch?v=-Q5v14O3Bmk*/
+
 /*--- tools ---*/
 var gulp = require('gulp'),
     less = require('gulp-less'),
@@ -15,7 +17,12 @@ var cssFilter = filter('**/*.css');
 
 /*--- command gulp ---*/
 gulp.task('default', ['style', 'dynamic', 'pages'], function() {
-
+    return gulp.src('./../src/main/webapp/WEB-INF/pages/*.jsp')
+        .pipe(useref.assets())
+        .pipe(useref.restore())
+        .pipe(useref())
+        .pipe(gulp.dest('./../src/main/webapp/WEB-INF/pages'));
+    //TODO : finish the build css task
 });
 
 /*--- command gulp watch ---*/
