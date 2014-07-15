@@ -17,10 +17,28 @@
 </head>
 <body>
     <jsp:include page="menu.jsp"/>
+    <div id="planningPoker" class="content">
+        <h1>Planning poker</h1>
 
-    <h1>Planning poker</h1>
-
-    <div></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Planning poker</div>
+            <div class="panel-body">
+                <div class="cardsSelection">
+                    <button class="btn btn-primary">0</button>
+                    <button class="btn btn-primary">0.5</button>
+                    <button class="btn btn-primary">1</button>
+                    <button class="btn btn-primary">2</button>
+                    <button class="btn btn-primary">3</button>
+                    <button class="btn btn-primary">5</button>
+                    <button class="btn btn-primary">8</button>
+                    <button class="btn btn-primary">13</button>
+                    <button class="btn btn-primary">21</button>
+                    <button class="btn btn-primary">34</button>
+                    <button class="btn btn-primary">55</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="<%=request.getContextPath()%>/app/js/jquery.js"></script>
     <script src="<%=request.getContextPath()%>/app/js/bootstrap.js"></script>
