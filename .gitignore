@@ -1,6 +1,4 @@
 .idea/
-aroundev.iml
-dev_assets/
 
 #I commit a first version of the project with files they didn't need to be push on the git repo...
 #After that I have created a .gitignore file
