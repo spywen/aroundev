@@ -1,5 +1,6 @@
 .idea/
 dev_assets/node_modules/
+src/main/resources/application.properties
 
 #I commit a first version of the project with files they didn't need to be push on the git repo...
 #After that I have created a .gitignore file
@@ -7,4 +8,3 @@ dev_assets/node_modules/
 #git rm -r --cached [some-directory OR FILE]
 #git commit -m 'Remove the now ignored directory OR FILE'
 #git push origin master
-#
