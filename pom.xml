@@ -16,6 +16,7 @@
         <jpa.version>1.6.1.RELEASE</jpa.version>
         <hibernate.version>4.3.5.Final</hibernate.version>
         <boneCP.version>0.8.0.RELEASE</boneCP.version>
+        <mysqldriver.version>5.1.31</mysqldriver.version>
     </properties>
 
     <dependencies>
@@ -97,6 +98,13 @@
             <groupId>com.jolbox</groupId>
             <artifactId>bonecp</artifactId>
             <version>${boneCP.version}</version>
+        </dependency>
+
+        <!-- MySQL database driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysqldriver.version}</version>
         </dependency>
     </dependencies>
 

@@ -19,6 +19,8 @@
 <body>
     <jsp:include page="menu.jsp"/>
 
+    <h1>${test}</h1>
+
     <script src="<%=request.getContextPath()%>/app/js/jquery.js"></script>
     <script src="<%=request.getContextPath()%>/app/js/bootstrap.js"></script>
 </body>
