@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
  * Created by laurent on 19/07/2014.
  * Substitue le web.xml
  */
-
+//@Order(2)
 public class WebAppConfigs extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {

@@ -12,8 +12,8 @@
     <title>Plannin poker - Aroundev.com</title>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="<%=request.getContextPath()%>/app/img/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/css/boostrap-flatly.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/css/plugins.app.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/css/app.min.css"/>
 </head>
 <body>
     <jsp:include page="menu.jsp"/>

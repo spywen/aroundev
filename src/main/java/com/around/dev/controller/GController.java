@@ -32,4 +32,10 @@ public class GController {
         ModelAndView modelAndView = new ModelAndView("planningPoker");
         return modelAndView;
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "angulartests")
+    public ModelAndView angularTestsPage() {
+        ModelAndView modelAndView = new ModelAndView("private/angularTests");
+        return modelAndView;
+    }
 }

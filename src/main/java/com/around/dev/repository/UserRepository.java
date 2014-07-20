@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserRepository extends JpaRepository<UserEntity, Integer>{
     long countById(int id);
+    UserEntity findByPseudo(String pseudo);
 }

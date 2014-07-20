@@ -112,12 +112,18 @@ public class UserEntity {
 
     @Basic
     @Column(name = "isactive", nullable = false, insertable = true, updatable = true)
-    public byte getIsactive() {
-        return isactive;
+    public boolean getIsactive() {
+        if(isactive == 1)
+            return true;
+        else
+            return false;
     }
 
-    public void setIsactive(byte isactive) {
-        this.isactive = isactive;
+    public void setIsactive(boolean isactive) {
+        if(!isactive)
+            this.isactive = 0;
+        else
+            this.isactive = 1;
     }
 
     @Override
