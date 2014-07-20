@@ -8,6 +8,18 @@ myApp.controller('MainCtrl', ['$scope', 'adMath', function ($scope, adMath) {
     var test = adMath.multiplyLess2(2, 2);
     $scope.text = 'Hello, Angular fanatic ! the service result is : ' + test;
 }]);
+myApp.controller('ngRepeatCtrl', ['$scope', function ($scope) {
+    $scope.numbers = [10, 25, 35, 45, 60, 80, 100];
+    $scope.lowerBound = 42;
+    // Does the Filters
+    $scope.greaterThanNum = function (item) {
+        return item > $scope.lowerBound;
+    };
+}]);
+myApp.controller('bindingCtrl', ['$scope', function($scope){
+    $scope.myName = '';
+}]);
+
 
 //Directives : manage templates
 myApp.directive('adOkBtn', function(){
@@ -43,4 +55,15 @@ myApp.service('adMath', function () {
 });
 
 //Factories : filters
-//...
+myApp.filter('reverse', function(){
+   return function (input, uppercase){
+       var out = '';
+       for(var i = 0; i < input.length; i++){
+           out = input.charAt(i) + out;
+       }
+       if(uppercase){
+           out = out.toUpperCase();
+       }
+       return out;
+   };
+});
