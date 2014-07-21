@@ -17,4 +17,4 @@ This project, take part of a new laboratory at Supinfo Nice (France) : Advanced-
 * Teamcity (continuous integration)
 
 
-***Design by Laurent Babin, 23 years old student from the south of France (Nice) at Supinfo International University.***
+***Design and lead by Laurent Babin, 23 years old student from the south of France (Nice) at Supinfo International University.***
