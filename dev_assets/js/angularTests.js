@@ -1,7 +1,16 @@
-/*Tuto : http://vfsvp.fr/article/apprendre-angular-en-un-jour-le-guide-ultime/*/
-
 /* TESTS ANGULAR */
 var myApp = angular.module('angularTests', []);
+
+//TODO Configs : view injection
+/*myApp.config(['$routeProvider', function ($routeProvider){
+    $routeProvider
+        .when('/', {
+            templateUrl: 'views/main.html'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+}]);*/
 
 //Controller : manage a specific part
 myApp.controller('MainCtrl', ['$scope', 'adMath', function ($scope, adMath) {
@@ -19,7 +28,47 @@ myApp.controller('ngRepeatCtrl', ['$scope', function ($scope) {
 myApp.controller('bindingCtrl', ['$scope', function($scope){
     $scope.myName = '';
 }]);
+myApp.controller('webServiceCtrl', ['$scope', '$http', function($scope, $http){
+    $scope.users = [];
+    $scope.pseudoStringSearch = {};
+    $scope.queryBy = '$';
 
+    /*$scope.$watch('pseudoStringSearch', function(){
+        //test
+    });*/
+
+    $http({
+        method: 'GET',
+        url: '/api/user'
+    })
+    .success(function (data, status, headers, config) {
+        // données récupérées avec succès
+        $scope.users = data;
+    })
+    .error(function (data, status, headers, config) {
+        // erreur de récupération :(
+    });
+
+    $scope.delete = function (index){
+      $scope.users.splice(index, 1);
+    };
+}]);
+myApp.controller('docSourceCtrl', ['$scope', function($scope){
+    $scope.docs = [
+        {
+            name:'vfsvp.fr',
+            url:'http://vfsvp.fr/article/apprendre-angular-en-un-jour-le-guide-ultime/'
+        },
+        {
+            name:'angular-tips.com',
+            url:'http://angular-tips.com/blog/2013/08/watch-how-the-apply-runs-a-digest/'
+        },
+        {
+            name:'angular date',
+            url: 'https://docs.angularjs.org/api/ng/filter/date'
+        }
+    ];
+}]);
 
 //Directives : manage templates
 myApp.directive('adOkBtn', function(){
