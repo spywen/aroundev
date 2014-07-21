@@ -18,6 +18,9 @@
         <boneCP.version>0.8.0.RELEASE</boneCP.version>
         <mysqldriver.version>5.1.31</mysqldriver.version>
         <springsecurity.version>3.2.4.RELEASE</springsecurity.version>
+        <jacksonDataBind.version>2.4.1.3</jacksonDataBind.version>
+        <jacksonCore.version>2.4.1.1</jacksonCore.version>
+        <jacksonAnnotation.version>2.4.1</jacksonAnnotation.version>
     </properties>
 
     <dependencies>
@@ -128,6 +131,31 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysqldriver.version}</version>
+        </dependency>
+
+        <!-- Jackson : JSON api -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jacksonDataBind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jacksonCore.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jacksonAnnotation.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate4</artifactId>
+            <version>${jacksonAnnotation.version}</version>
         </dependency>
     </dependencies>
 

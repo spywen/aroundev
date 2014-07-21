@@ -1,8 +1,11 @@
 package com.around.dev.business;
 
+import com.around.dev.entity.UserEntity;
 import com.around.dev.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Created by laurent on 19/07/2014.
@@ -17,4 +20,10 @@ public class UserBusiness {
     public long countUserById(int id){
         return userRepository.countById(id);
     }
+
+    /**
+     * Find all
+     * @return
+     */
+    public List<UserEntity> findAll() { return userRepository.findAll(); }
 }
