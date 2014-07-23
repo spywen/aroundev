@@ -1,6 +1,6 @@
 package com.around.dev.business;
 
-import com.around.dev.entity.UserEntity;
+import com.around.dev.entity.User;
 import com.around.dev.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,5 +25,5 @@ public class UserBusiness {
      * Find all
      * @return
      */
-    public List<UserEntity> findAll() { return userRepository.findAll(); }
+    public List<User> findAll() { return userRepository.findAll(); }
 }

@@ -1,7 +1,7 @@
 package com.around.dev.controller.api;
 
 import com.around.dev.business.UserBusiness;
-import com.around.dev.entity.UserEntity;
+import com.around.dev.entity.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class UserControllerApi {
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public List<UserEntity> getUsers() {
+    public List<User> getUsers() {
         return userBusiness.findAll();
     }
 }

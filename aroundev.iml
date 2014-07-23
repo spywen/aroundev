@@ -17,20 +17,11 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="web mvc-dispatcher servlet context" name="MVC mvc-dispatcher servlet context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/AppConfigs.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/BusinessConfigs.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/JpaConfigs.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/PropertiesConfigs.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/RootConfigs.java</file>
-        </fileset>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/application.properties</file>
-          <file>file://$MODULE_DIR$/src/main/resources/log4j.properties</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/JpaConfigs.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/PropertiesConfigs.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/AppConfigs.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/BusinessConfigs.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/JpaConfigs.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/PropertiesConfigs.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/around/dev/configs/RootConfigs.java</file>
         </fileset>
       </configuration>
@@ -40,6 +31,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping />
+        <deploymentDescriptor name="orm.xml" url="file://$MODULE_DIR$/META-INF/orm.xml" />
       </configuration>
     </facet>
   </component>
