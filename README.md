@@ -18,3 +18,5 @@ This project, take part of a new laboratory at Supinfo Nice (France) : Advanced-
 
 
 ***Design and lead by Laurent Babin, 23 years old student from the south of France (Nice) at Supinfo International University.***
+***Thanks to Kevin Davin for his support. https://github.com/davinkevin***
+[id]: <http://example.com/>  "Optional Title Here"
