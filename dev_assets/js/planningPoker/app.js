@@ -3,6 +3,6 @@
  */
 var myPlanningPokerApp = angular.module('planningPoker', []);
 
-myPlanningPokerApp.controller('games', ['$scope', function ($scope) {
+myPlanningPokerApp.controller('grooming', ['$scope', function ($scope) {
 
 }]);
