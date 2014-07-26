@@ -18,7 +18,6 @@ public class GController {
     @Autowired
     UserBusiness userBusiness;
 
-
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView homePage() {
         //logger.info("Ouverture de la page principale..");
@@ -27,15 +26,9 @@ public class GController {
         return modelAndView;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "planningpoker")
-    public ModelAndView planningPokerPage() {
-        ModelAndView modelAndView = new ModelAndView("planningPoker");
-        return modelAndView;
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "angulartests")
-    public ModelAndView angularTestsPage() {
-        ModelAndView modelAndView = new ModelAndView("private/angularTests");
+    @RequestMapping(method = RequestMethod.GET, value = "login")
+    public ModelAndView loginPage() {
+        ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
     }
 }

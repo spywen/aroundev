@@ -40,7 +40,7 @@ public class JpaConfigs {
     @Resource
     private Environment environment;
 
-    @Bean
+    @Bean(name = "dataSource")
     public DataSource dataSource() {
         BoneCPDataSource dataSource = new BoneCPDataSource();
 

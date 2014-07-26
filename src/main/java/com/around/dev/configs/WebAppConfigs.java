@@ -1,5 +1,6 @@
 package com.around.dev.configs;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.ServletContext;
@@ -9,7 +10,7 @@ import javax.servlet.ServletException;
  * Created by laurent on 19/07/2014.
  * Substitue le web.xml
  */
-//@Order(2)
+@Order(2)
 public class WebAppConfigs extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -18,7 +19,7 @@ public class WebAppConfigs extends AbstractAnnotationConfigDispatcherServletInit
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{AppConfigs.class};
+        return new Class[]{AppConfigs.class, SecurityConfig.class};
     }
 
     @Override

@@ -15,7 +15,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "User", schema = "", catalog = "aroundev")
-public class User {
+public class UserAroundev {
     private int id;
     private String lastname;
     private String firstname;
@@ -141,20 +141,20 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (!(o instanceof UserAroundev)) return false;
 
-        User user = (User) o;
+        UserAroundev userAroundev = (UserAroundev) o;
 
-        if (id != user.id) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (firstname != null ? !firstname.equals(user.firstname) : user.firstname != null) return false;
-        if (isactive != null ? !isactive.equals(user.isactive) : user.isactive != null) return false;
-        if (isfemale != null ? !isfemale.equals(user.isfemale) : user.isfemale != null) return false;
-        if (lastname != null ? !lastname.equals(user.lastname) : user.lastname != null) return false;
-        if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (registerdate != null ? !registerdate.equals(user.registerdate) : user.registerdate != null) return false;
-        if (roles != null ? !roles.equals(user.roles) : user.roles != null) return false;
+        if (id != userAroundev.id) return false;
+        if (email != null ? !email.equals(userAroundev.email) : userAroundev.email != null) return false;
+        if (firstname != null ? !firstname.equals(userAroundev.firstname) : userAroundev.firstname != null) return false;
+        if (isactive != null ? !isactive.equals(userAroundev.isactive) : userAroundev.isactive != null) return false;
+        if (isfemale != null ? !isfemale.equals(userAroundev.isfemale) : userAroundev.isfemale != null) return false;
+        if (lastname != null ? !lastname.equals(userAroundev.lastname) : userAroundev.lastname != null) return false;
+        if (login != null ? !login.equals(userAroundev.login) : userAroundev.login != null) return false;
+        if (password != null ? !password.equals(userAroundev.password) : userAroundev.password != null) return false;
+        if (registerdate != null ? !registerdate.equals(userAroundev.registerdate) : userAroundev.registerdate != null) return false;
+        if (roles != null ? !roles.equals(userAroundev.roles) : userAroundev.roles != null) return false;
 
         return true;
     }

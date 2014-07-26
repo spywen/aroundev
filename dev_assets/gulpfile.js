@@ -16,7 +16,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename');
 
 //Location (we can put an '!' to exclude a path from the list)
-var scriptLocation = ['js/*.js'],
+var scriptLocation = ['js/*.js','js/planningPoker/*.js'],
     pluginScriptLocation = ['js/plugins/jquery.js', 'js/plugins/bootstrap.js', 'js/plugins/angular.js'],
     styleLocation = ['css/*.less'],
     pluginStyleLocation = ['css/plugins/*.less'],
