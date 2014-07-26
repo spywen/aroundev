@@ -27,4 +27,17 @@
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+    <!--
+    <security-constraint>
+        <display-name>Security constraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>Automatic SLL Forwarding</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    -->
 </web-app>
