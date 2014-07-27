@@ -17,11 +17,11 @@
         <h1>Planning poker</h1>
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" data-ng-controller="groomingsCtrl">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Grooming sessions</div>
                     <div class="panel-body">
-                        <div data-ng-controller="listMyGrooming">
+                        <div>
                             <p>{{ groomings.length > 0 && groomings.length + ' active grooming(s)' || 'No grooming'}}</p>
                             <accordion close-others="oneAtATime">
                                 <accordion-group data-ng-repeat="grooming in groomings" is-open="status.open">

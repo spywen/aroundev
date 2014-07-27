@@ -7,6 +7,7 @@ import com.around.dev.exception.AuthenticateUserException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,8 +26,14 @@ public class PlanningPokerControllerApi {
 
     @RequestMapping(method = RequestMethod.GET, value = "/grooming", produces = "application/json")
     @ResponseBody
-    public List<Grooming> getGroomings() throws AuthenticateUserException {
+    public List<Grooming> findAll() throws AuthenticateUserException {
         return planningPokerBusiness.getGroomingsByUser();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/grooming", produces = "application/json")
+    @ResponseBody
+    public void save(@RequestBody Grooming grooming) throws AuthenticateUserException {
+        planningPokerBusiness.save(grooming);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/storystatus", produces = "application/json")

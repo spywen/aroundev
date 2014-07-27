@@ -10,6 +10,8 @@ import com.around.dev.repository.planningPoker.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,5 +36,11 @@ public class PlanningPokerBusiness {
 
     public List<StoryStatus> getStoryStatus(){
         return storyStatusRepository.findAll();
+    }
+
+    public void save(Grooming grooming) throws AuthenticateUserException {
+        grooming.setCreationdate(new Timestamp(new Date().getTime()));
+        grooming.setModerator(userBusiness.getConnectedUser().getId());
+        groomingRepository.save(grooming);
     }
 }

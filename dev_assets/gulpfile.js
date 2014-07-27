@@ -48,8 +48,8 @@ gulp.task('script', function(){
     return gulp.src(scriptLocation)
         .pipe(plumber())
         .pipe(concat('app.min.js'))
-        .pipe(ngmin())
-        .pipe(uglify())
+        //.pipe(ngmin())
+        //.pipe(uglify())
         .pipe(gulp.dest(scriptDestination));
 });
 gulp.task('page', function(){
