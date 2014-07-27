@@ -3,7 +3,7 @@ package com.around.dev.entity.planningpoker;
 import com.around.dev.entity.UserAroundev;
 
 import javax.persistence.*;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 /**
  * Created by laurent on 26/07/2014.
@@ -29,7 +29,7 @@ public class Vote {
         this.id = id;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "story", referencedColumnName = "id", nullable = false)
     public Story getStory() {
         return story;
@@ -69,29 +69,4 @@ public class Vote {
         this.session = session;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Vote)) return false;
-
-        Vote vote = (Vote) o;
-
-        if (id != vote.id) return false;
-        if (session != vote.session) return false;
-        if (story != null ? !story.equals(vote.story) : vote.story != null) return false;
-        if (userAroundev != null ? !userAroundev.equals(vote.userAroundev) : vote.userAroundev != null) return false;
-        if (votedate != null ? !votedate.equals(vote.votedate) : vote.votedate != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (story != null ? story.hashCode() : 0);
-        result = 31 * result + (userAroundev != null ? userAroundev.hashCode() : 0);
-        result = 31 * result + (votedate != null ? votedate.hashCode() : 0);
-        result = 31 * result + session;
-        return result;
-    }
 }

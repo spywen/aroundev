@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "PlanningPokerStatus", schema = "", catalog = "aroundev")
-public class Status {
+public class StoryStatus {
     private int id;
     private String code;
     private String description;
@@ -47,13 +47,13 @@ public class Status {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Status)) return false;
+        if (!(o instanceof StoryStatus)) return false;
 
-        Status status = (Status) o;
+        StoryStatus that = (StoryStatus) o;
 
-        if (id != status.id) return false;
-        if (code != null ? !code.equals(status.code) : status.code != null) return false;
-        if (description != null ? !description.equals(status.description) : status.description != null) return false;
+        if (id != that.id) return false;
+        if (code != null ? !code.equals(that.code) : that.code != null) return false;
+        if (description != null ? !description.equals(that.description) : that.description != null) return false;
 
         return true;
     }

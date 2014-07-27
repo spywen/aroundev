@@ -1,25 +1,22 @@
 package com.around.dev.entity.planningpoker;
 
-import com.around.dev.entity.UserAroundev;
-
 import javax.persistence.*;
-import java.security.Timestamp;
-import java.util.List;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * Created by laurent on 26/07/2014.
  */
 @Entity
 @Table(name = "PlanningPokerGrooming", schema = "", catalog = "aroundev")
-public class Grooming {
+public class Grooming implements Serializable{
     private int id;
     private String name;
     private String description;
     private Timestamp creationdate;
     private Timestamp enddate;
-    private UserAroundev moderator;
-    private boolean IsActive;
-    private List<Story> stories;
+    private int moderator;
+    private Boolean IsActive;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "groomingId")
@@ -73,33 +70,24 @@ public class Grooming {
         this.enddate = enddate;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "moderator", referencedColumnName = "id", nullable = false)
-    public UserAroundev getModerator() {
+    @Basic
+    @Column(name = "moderator")
+    public int getModerator() {
         return moderator;
     }
 
-    public void setModerator(UserAroundev moderator) {
+    public void setModerator(int moderator) {
         this.moderator = moderator;
     }
 
     @Basic
     @Column(name = "isactive", nullable = false, insertable = true, updatable = true)
-    public boolean isActive() {
+    public Boolean getIsActive() {
         return IsActive;
     }
 
-    public void setActive(boolean isActive) {
+    public void setIsActive(Boolean isActive) {
         IsActive = isActive;
-    }
-
-    @OneToMany(mappedBy="grooming")
-    public List<Story> getStories() {
-        return stories;
-    }
-
-    public void setStories(List<Story> stories) {
-        this.stories = stories;
     }
 
     @Override
@@ -109,16 +97,14 @@ public class Grooming {
 
         Grooming grooming = (Grooming) o;
 
-        if (IsActive != grooming.IsActive) return false;
         if (id != grooming.id) return false;
+        if (IsActive != null ? !IsActive.equals(grooming.IsActive) : grooming.IsActive != null) return false;
         if (creationdate != null ? !creationdate.equals(grooming.creationdate) : grooming.creationdate != null)
             return false;
         if (description != null ? !description.equals(grooming.description) : grooming.description != null)
             return false;
         if (enddate != null ? !enddate.equals(grooming.enddate) : grooming.enddate != null) return false;
-        if (moderator != null ? !moderator.equals(grooming.moderator) : grooming.moderator != null) return false;
         if (name != null ? !name.equals(grooming.name) : grooming.name != null) return false;
-        if (stories != null ? !stories.equals(grooming.stories) : grooming.stories != null) return false;
 
         return true;
     }
@@ -130,9 +116,7 @@ public class Grooming {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (creationdate != null ? creationdate.hashCode() : 0);
         result = 31 * result + (enddate != null ? enddate.hashCode() : 0);
-        result = 31 * result + (moderator != null ? moderator.hashCode() : 0);
-        result = 31 * result + (IsActive ? 1 : 0);
-        result = 31 * result + (stories != null ? stories.hashCode() : 0);
+        result = 31 * result + (IsActive != null ? IsActive.hashCode() : 0);
         return result;
     }
 }

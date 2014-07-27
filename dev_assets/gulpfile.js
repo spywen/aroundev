@@ -17,10 +17,18 @@ var gulp = require('gulp'),
 
 //Location (we can put an '!' to exclude a path from the list)
 var scriptLocation = ['js/*.js','js/planningPoker/*.js'],
-    pluginScriptLocation = ['js/plugins/jquery.js', 'js/plugins/bootstrap.js', 'js/plugins/angular.js'],
-    styleLocation = ['css/*.less'],
-    pluginStyleLocation = ['css/plugins/*.less'],
-    pageLocation = ['pages/**/*.jsp'];
+    styleLocation = ['css/*.less', 'css/planningPoker/*.less'],
+    pageLocation = ['pages/**/*.jsp'],
+
+    pluginScriptLocation = [
+        'js/plugins/jquery.js',
+        'js/plugins/bootstrap.js',
+        'js/plugins/angular.js',
+        'js/plugins/ui-bootstrap.js',
+        'js/plugins/lodash.js',
+        'js/plugins/restangular.js'
+    ],
+    pluginStyleLocation = ['css/plugins/*.less', 'css/plugins/*.css'];
 
 //Destination
 var scriptDestination = './../src/main/webapp/app/js',
@@ -74,9 +82,9 @@ gulp.task('plugin_style', function(){
 
 
 
-/*--- command 'gulp' ---*/
+/*--- command 'gulp [default || plugins]' ---*/
 gulp.task('default', ['style', 'script', 'page']);
-//gulp.task('default', ['plugin_script', 'plugin_style']); //(+plugins)
+gulp.task('plugins', ['plugin_script', 'plugin_style']); //(+plugins)
 
 /*--- command 'gulp watch' ---*/
 gulp.task('watch', function(){

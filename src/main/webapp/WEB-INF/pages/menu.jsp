@@ -19,12 +19,14 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<%=request.getContextPath()%>/tools/planningpoker">Planning poker</a></li>
             </ul>
+            <!--
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            -->
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">FAQ/Questions !?</a></li>
                 <sec:authorize ifAllGranted="AUTHENTICATED">

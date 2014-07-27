@@ -25,9 +25,9 @@
     "gulp-inject": "~0.4.1",
     "gulp-ngmin": "~0.3.0",
     "gulp-concat": "~2.3.3",
-    "gulp-rename": "~1.2.0"
+    "gulp-rename": "~1.2.0",
+    "angular-bootstrap": "~0.11.0",
+    "restangular": "~1.4.0"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }

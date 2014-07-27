@@ -2,7 +2,6 @@ package com.around.dev.entity.planningpoker;
 
 import javax.persistence.*;
 import java.security.Timestamp;
-import java.util.List;
 
 /**
  * Created by laurent on 26/07/2014.
@@ -15,9 +14,8 @@ public class Story {
     private String name;
     private String description;
     private Timestamp creationdate;
-    private Status status;
+    private StoryStatus storyStatus;
     private int estimation;
-    private List<Vote> votes;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "storyId")
@@ -73,12 +71,12 @@ public class Story {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "status", referencedColumnName = "id", nullable = false)
-    public Status getStatus() {
-        return status;
+    public StoryStatus getStoryStatus() {
+        return storyStatus;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStoryStatus(StoryStatus storyStatus) {
+        this.storyStatus = storyStatus;
     }
 
     @Basic
@@ -89,15 +87,6 @@ public class Story {
 
     public void setEstimation(int estimation) {
         this.estimation = estimation;
-    }
-
-    @OneToMany(mappedBy="story")
-    public List<Vote> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(List<Vote> votes) {
-        this.votes = votes;
     }
 
     @Override
@@ -113,8 +102,7 @@ public class Story {
         if (description != null ? !description.equals(story.description) : story.description != null) return false;
         if (grooming != null ? !grooming.equals(story.grooming) : story.grooming != null) return false;
         if (name != null ? !name.equals(story.name) : story.name != null) return false;
-        if (status != null ? !status.equals(story.status) : story.status != null) return false;
-        if (votes != null ? !votes.equals(story.votes) : story.votes != null) return false;
+        if (storyStatus != null ? !storyStatus.equals(story.storyStatus) : story.storyStatus != null) return false;
 
         return true;
     }
@@ -126,9 +114,8 @@ public class Story {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (creationdate != null ? creationdate.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (storyStatus != null ? storyStatus.hashCode() : 0);
         result = 31 * result + estimation;
-        result = 31 * result + (votes != null ? votes.hashCode() : 0);
         return result;
     }
 }
