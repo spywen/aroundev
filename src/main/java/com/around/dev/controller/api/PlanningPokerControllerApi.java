@@ -4,13 +4,11 @@ import com.around.dev.business.PlanningPokerBusiness;
 import com.around.dev.entity.planningpoker.Grooming;
 import com.around.dev.entity.planningpoker.StoryStatus;
 import com.around.dev.exception.AuthenticateUserException;
+import com.around.dev.exception.RightException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,9 +34,17 @@ public class PlanningPokerControllerApi {
         planningPokerBusiness.save(grooming);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/grooming/{id:[\\d]+}", produces = "application/json")
+    @ResponseBody
+    public void delete(@PathVariable(value = "id") int id) throws AuthenticateUserException, RightException {
+        planningPokerBusiness.delete(id);
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/storystatus", produces = "application/json")
     @ResponseBody
     public List<StoryStatus> getStoryStatus() {
         return planningPokerBusiness.getStoryStatus();
     }
+
+
 }

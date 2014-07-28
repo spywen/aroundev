@@ -32,6 +32,9 @@
                                         {{grooming.description}}
                                     </p>
                                     <a>URL</a>
+                                    <div class="boxTools">
+                                        <a data-ng-click="delete($index)" class="btn btn-danger btn-xs">Delete <i class="fa fa-trash-o"></i></a>
+                                    </div>
                                 </accordion-group>
                             </accordion>
                         </div>

@@ -18,9 +18,15 @@ public class ExceptionInfo {
         this.type = niveau;
     }
 
-    //Inscription
-    /*public  ExceptionInfo(InscriptionException uploadException){
-        this.message = uploadException.getMessage();
-        this.type = uploadException.getType();
-    }*/
+    //Authentification required
+    public  ExceptionInfo(AuthenticateUserException e){
+        this.message = e.getMessage();
+        this.type = e.getType();
+    }
+
+    //Right required
+    public  ExceptionInfo(RightException e){
+        this.message = e.getMessage();
+        this.type = e.getType();
+    }
 }

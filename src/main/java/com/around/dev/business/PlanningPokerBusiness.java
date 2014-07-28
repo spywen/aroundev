@@ -3,6 +3,7 @@ package com.around.dev.business;
 import com.around.dev.entity.planningpoker.Grooming;
 import com.around.dev.entity.planningpoker.StoryStatus;
 import com.around.dev.exception.AuthenticateUserException;
+import com.around.dev.exception.RightException;
 import com.around.dev.repository.planningPoker.GroomingRepository;
 import com.around.dev.repository.planningPoker.StoryRepository;
 import com.around.dev.repository.planningPoker.StoryStatusRepository;
@@ -42,5 +43,14 @@ public class PlanningPokerBusiness {
         grooming.setCreationdate(new Timestamp(new Date().getTime()));
         grooming.setModerator(userBusiness.getConnectedUser().getId());
         groomingRepository.save(grooming);
+    }
+
+    public void delete(int id) throws AuthenticateUserException, RightException {
+        Grooming grooming = groomingRepository.findOne(id);
+        if(grooming != null){
+            if(grooming.getModerator()!=userBusiness.getConnectedUser().getId())
+                throw new RightException("You don't have the right to remove this grooming session");
+            groomingRepository.delete(grooming);
+        }
     }
 }
