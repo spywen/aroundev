@@ -21,6 +21,7 @@ myPlanningPokerApp.controller('groomingsCtrl', ['$scope', 'Restangular', functio
 
     $scope.newGroomingForm = function(){
         var datas = $scope.fields;
+        datas.name.focus();
         var newGrooming = {id:null,name:datas.name,description:datas.description,creationdate:0,enddate:null,moderator:0,isActive:true};
         groomingsApi.post(newGrooming).then(function(){
             groomingsApi.getList().then(function(groomings) {
@@ -41,4 +42,6 @@ myPlanningPokerApp.controller('groomingsCtrl', ['$scope', 'Restangular', functio
             alert("error");
         });
     };
+
+
 }]);

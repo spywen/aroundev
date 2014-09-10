@@ -26,7 +26,10 @@ var scriptLocation = ['js/*.js','js/planningPoker/*.js'],
         'js/plugins/angular.js',
         'js/plugins/ui-bootstrap.js',
         'js/plugins/lodash.js',
-        'js/plugins/restangular.js'
+        'js/plugins/restangular.js',
+        'js/plugins/angularstompdk.js',
+        'js/plugins/sockjs.js',
+        'js/plugins/highcharts.js'
     ],
     pluginStyleLocation = ['css/plugins/*.less', 'css/plugins/*.css'];
 

@@ -69,6 +69,46 @@ myApp.controller('docSourceCtrl', ['$scope', function($scope){
         }
     ];
 }]);
+myApp.controller('websocketTest',['$scope', function($scopeÒ){
+    var randomData;
+    $('#randomDataChart').highcharts({
+        chart : {
+            type : 'line',
+            events : {
+                load : function() {
+                    randomData = undefined;
+                }
+            }
+        },
+        title : {
+            text : false
+        },
+        xAxis : {
+            type : 'datetime',
+            minRange : 60 * 1000
+        },
+        yAxis : {
+            title : {
+                text : false
+            }
+        },
+        legend : {
+            enabled : false
+        },
+        plotOptions : {
+            series : {
+                threshold : 0,
+                marker : {
+                    enabled : false
+                }
+            }
+        },
+        series : [ {
+            name : 'Data',
+            data : [ ]
+        } ]
+    });
+}]);
 
 //Directives : manage templates
 myApp.directive('adOkBtn', function(){

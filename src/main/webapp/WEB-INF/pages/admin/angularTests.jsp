@@ -82,6 +82,12 @@
                     <li data-ng-repeat="doc in docs"><a href="{{doc.url}}" target="_blank">{{doc.name}}</a></li>
                 </ul>
             </div>
+
+            <div data-ng-controller="websocketTest">
+                <div id="randomDataChart">
+                </div>
+            </div>
+
         </div>
     </div>
 

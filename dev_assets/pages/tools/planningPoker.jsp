@@ -46,7 +46,7 @@
                                 <div data-ng-show="toggle">
                                     <button class="btn btn-default btn-sm" data-ng-click="toggle = !toggle">Cancel</button>
                                     <form class="form-horizontal" role="form" data-ng-submit="newGroomingForm()">
-                                        <input type="name" class="form-control" id="groomingName" placeholder="Name ..." data-ng-model="fields.name">
+                                        <input type="name" class="form-control" id="groomingName" placeholder="Name ..." data-ng-model="fields.name" autofocus/>
                                         <textarea class="form-control" rows="3" name="groomingDescription" placeholder="Description ..." data-ng-model="fields.description"></textarea>
                                         <input type="submit" value="Create" class="btn btn-primary btn-sm"/>
                                     </form>
@@ -63,6 +63,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Stories</div>
                     <div class="panel-body">
+
                         <!--
                         <div class="panel panel-default cards">
                             <div class="panel-heading">Current story</div>

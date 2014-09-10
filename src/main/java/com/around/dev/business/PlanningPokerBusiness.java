@@ -1,6 +1,7 @@
 package com.around.dev.business;
 
 import com.around.dev.entity.planningpoker.Grooming;
+import com.around.dev.entity.planningpoker.Story;
 import com.around.dev.entity.planningpoker.StoryStatus;
 import com.around.dev.exception.AuthenticateUserException;
 import com.around.dev.exception.RightException;
@@ -52,5 +53,15 @@ public class PlanningPokerBusiness {
                 throw new RightException("You don't have the right to remove this grooming session");
             groomingRepository.delete(grooming);
         }
+    }
+
+
+    //TEST WEBSOCKET
+    public List<Story> findAllStories(){
+        return storyRepository.findAll();
+    }
+    public void deleteStory(int id){
+        Story story = storyRepository.findOne(id);
+        storyRepository.delete(story);
     }
 }
