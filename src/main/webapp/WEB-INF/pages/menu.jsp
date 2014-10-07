@@ -10,8 +10,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
-                <img id="imgBrandLogo" src="<%=request.getContextPath()%>/app/img/aroundev_logo_200x200.png" title="" alt="Aroundev logo"/> Aroundev</a>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/">
+                <img id="imgBrandLogo" src="<%=request.getContextPath()%>/app/img/aroundev_logo_200x200.png" title="" alt="Aroundev logo"/>
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

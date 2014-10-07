@@ -76,7 +76,7 @@ public class JpaConfigs {
         jpaProperties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
 
         //Update DB
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_DB_ACTION, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DB_ACTION));
+        //jpaProperties.put(PROPERTY_NAME_HIBERNATE_DB_ACTION, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DB_ACTION));
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
 
