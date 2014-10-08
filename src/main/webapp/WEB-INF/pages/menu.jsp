@@ -41,6 +41,9 @@
                         </ul>
                     </li>
                     </sec:authorize>
+                    <sec:authorize ifNotGranted="AUTHENTICATED">
+                        <li><a href="<%=request.getContextPath()%>/login">Log in</a></li>
+                    </sec:authorize>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
