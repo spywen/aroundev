@@ -17,7 +17,7 @@ var gulp = require('gulp'),
 
 //Location (we can put an '!' to exclude a path from the list)
 var scriptLocation = ['js/*.js','js/planningPoker/*.js'],
-    styleLocation = ['css/*.less', 'css/planningPoker/*.less'],
+    styleLocation = ['css/*.less', 'css/**/*.less','!css/plugins/*.*'],
     pageLocation = ['pages/**/*.jsp'],
 
     pluginScriptLocation = [

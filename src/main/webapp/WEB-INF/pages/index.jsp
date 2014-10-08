@@ -13,7 +13,7 @@
     </jsp:include>
 <body id="index">
     <jsp:include page="menu.jsp"/>
-    <div id="pageTitleAroundev">
+    <div class="title">
         <h1>
             <img id="imgBrandLogo" src="<%=request.getContextPath()%>/app/img/aroundev_logo_200x200.png" title="" alt="Aroundev logo"/>
             Aroundev
@@ -22,6 +22,26 @@
 
     <div class="content">
         <!--<h1>${test}</h1>-->
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fa fa-home"></i>
+                <h2>Home sweet home</h2>
+                <p>Ô developers all around the world this platform is dedicated to you. Consider Aroundev like your home.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-wrench"></i>
+                <h2>Dev tooling</h2>
+                <p>Find here all the tooling you need to dev well and simple with all your collaborator.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-money"></i>
+                <h2>Free solution</h2>
+                <p>Aroundev is a platform solution which will give you all your, free of charges, weapons.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
+        </div>
     </div>
 
     <jsp:include page="include/js.jsp"/>
