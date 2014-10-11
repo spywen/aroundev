@@ -1,9 +1,13 @@
-bower : "A package manager for the web"
-#http://bower.io/
+NPM PACKAGE MANAGER DOC
 
 init manifest : (in the right folder) npm init
 install package : npm install <package> —-save(-dev)
-uninstall package : npm uninstall <package> --save
+uninstall package : npm uninstall <package> --save(-dev)
 update : npm update (all packages will be download)
 
 install gulp globally : npm install gulp -g (to execute)
+
+
+(another package manger :
+#bower : "A package manager for the web"
+#http://bower.io/)

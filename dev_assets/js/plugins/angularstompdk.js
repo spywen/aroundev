@@ -1,5 +1,0 @@
-/**
- * Created by laurent on 02/09/2014.
- */
-
-angular.module("AngularStomp",[]).factory("ngstomp",["$rootScope","$log",function(t,n){var o=function(t,o,p){this.stompClient=o?Stomp.over(new o(t)):Stomp.client(t),this.stompClient.debug=p?n.debug:function(){}};return o.prototype.subscribe=function(n,o){this.stompClient.subscribe(n,function(){o.apply(this.stompClient,arguments),t.$$phase||t.$apply()})},o.prototype.unsubscribe=function(t,n){this.stompClient.unsubscribe(t,n)},o.prototype.send=function(t,n,o){this.stompClient.send(t,n,o)},o.prototype.connect=function(n,o,p,e,s){var i=this;this.stompClient.connect(n,o,function(){p.apply(i.stompClient,arguments),t.$$phase||t.$apply()},function(){e.apply(i.stompClient,arguments),t.$$phase||t.$apply()},s)},o.prototype.disconnect=function(n){var o=this;this.stompClient.disconnect(function(){n.apply(o.stompClient,arguments),t.$$phase||t.$apply()})},function(t,n,p){return new o(t,n,p)}}]);
