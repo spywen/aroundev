@@ -54,14 +54,4 @@ public class AppConfigs extends WebMvcConfigurerAdapter {
 
         converters.add(new StringHttpMessageConverter());
     }
-
-    /*@Bean
-    public RequestMappingHandlerAdapter requestMappingHandlerAdapter()
-    {
-        final RequestMappingHandlerAdapter requestMappingHandlerAdapter = new RequestMappingHandlerAdapter();
-        String[] supportedHttpMethods = { "POST", "GET", "HEAD", "DELETE", "PUT" };
-        requestMappingHandlerAdapter.setSupportedMethods(supportedHttpMethods);
-
-        return requestMappingHandlerAdapter;
-    }*/
 }

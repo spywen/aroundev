@@ -12,6 +12,7 @@
         <jsp:param name="title" value="Home"/>
     </jsp:include>
 <body id="index">
+
     <jsp:include page="menu.jsp"/>
     <div class="title">
         <h1>
