@@ -11,14 +11,12 @@ aroundevApp.controller('userCtrl', function($scope, $translate, $http, $location
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).
-            success(function(data, status, headers, config) {
-                toastr.success($translate.instant('LOGIN_LOG_IN_SUCCESS'));
-                $location.path('/');
-                window.location.reload();
-            }).
-            error(function(data, status, headers, config){
-                toastr.error($translate.instant('LOGIN_LOG_IN_FAILED'));
-                $location.path('/login');
-            });
+        success(function(data, status, headers, config) {
+            $location.path('/');
+            window.location.reload();
+        }).
+        error(function(data, status, headers, config){
+            toastr.error($translate.instant('LOGIN_LOG_IN_FAILED'));
+        });
     };
 });

@@ -76,6 +76,8 @@
 
     <div class="content" data-ng-view></div>
 
+
+
     <!-- inject:js -->
     <script src="/app/js/lib/jquery/dist/jquery.min.js"></script>
     <script src="/app/js/lib/lodash/dist/lodash.compat.min.js"></script>
