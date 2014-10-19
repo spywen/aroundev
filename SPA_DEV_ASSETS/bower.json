@@ -1,0 +1,156 @@
+{
+  "name": "Aroundev",
+  "version": "0.0.1",
+  "homepage": "https://github.com/spywen/aroundev_project",
+  "authors": [
+    "spywen <spywen@hotmail.fr>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "lodash": "~2.4.1",
+    "angular": "~1.3.0",
+    "angular-bootstrap": "~0.11.2",
+    "restangular": "~1.4.0",
+    "bootstrap": "~3.2.0",
+    "angular-cookies": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "angular-translate": "~2.4.1",
+    "angular-translate-loader-static-files": "~2.4.1",
+    "angular-translate-storage-cookie": "~2.4.1",
+    "angular-translate-loader-url": "~2.4.1",
+    "font-awesome": "~4.2.0",
+    "toastr": "~2.0.3"
+  },
+  "overrides": {
+    "jquery": {
+      "main": {
+        "dev": "dist/jquery.js",
+        "prod": [
+          "dist/jquery.min.js",
+          "dist/jquery.min.map"
+        ]
+      }
+    },
+    "angular": {
+      "main": {
+        "dev": "angular.js",
+        "prod": [
+          "angular.min.js",
+          "angular.min.js.map"
+        ]
+      }
+    },
+    "bootstrap": {
+      "main": {
+        "dev": [
+          "dist/js/bootstrap.js",
+          "dist/fonts/glyphicons-halflings-regular.eot",
+          "dist/fonts/glyphicons-halflings-regular.svg",
+          "dist/fonts/glyphicons-halflings-regular.ttf",
+          "dist/fonts/glyphicons-halflings-regular.woff"
+        ],
+        "prod": [
+          "dist/js/bootstrap.min.js",
+          "dist/fonts/glyphicons-halflings-regular.eot",
+          "dist/fonts/glyphicons-halflings-regular.svg",
+          "dist/fonts/glyphicons-halflings-regular.ttf",
+          "dist/fonts/glyphicons-halflings-regular.woff"
+        ]
+      }
+    },
+    "angular-bootstrap": {
+      "main": {
+        "dev": "ui-bootstrap-tpls.js",
+        "prod": "ui-bootstrap-tpls.min.js"
+      }
+    },
+    "angular-route": {
+      "main": {
+        "dev": "angular-route.js",
+        "prod": [
+          "angular-route.min.js",
+          "angular-route.min.js.map"
+        ]
+      }
+    },
+    "angular-cookies": {
+      "main": {
+        "dev": "angular-cookies.js",
+        "prod": [
+          "angular-cookies.min.js",
+          "angular-cookies.min.js.map"
+        ]
+      }
+    },
+    "angular-translate": {
+      "main": {
+        "dev": "angular-translate.js",
+        "prod": "angular-translate.min.js"
+      }
+    },
+    "angular-translate-loader-static-files": {
+      "main": {
+        "dev": "angular-translate-loader-static-files.js",
+        "prod": "angular-translate-loader-static-files.min.js"
+      }
+    },
+    "angular-translate-loader-url": {
+      "main": {
+        "dev": "angular-translate-loader-url.js",
+        "prod": "angular-translate-loader-url.min.js"
+      }
+    },
+    "angular-translate-storage-cookie": {
+      "main": {
+        "dev": "angular-translate-storage-cookie.js",
+        "prod": "angular-translate-storage-cookie.min.js"
+      }
+    },
+    "lodash": {
+      "main": {
+        "dev": "dist/lodash.compat.js",
+        "prod": "dist/lodash.compat.min.js"
+      }
+    },
+    "restangular": {
+      "main": {
+        "dev": "dist/restangular.js",
+        "prod": "dist/restangular.min.js"
+      }
+    },
+    "font-awesome": {
+      "main": {
+        "dev": [
+          "css/font-awesome.css",
+          "fonts/FontAwesome.otf",
+          "fonts/fontawesome-webfont.eot",
+          "fonts/fontawesome-webfont.svg",
+          "fonts/fontawesome-webfont.ttf",
+          "fonts/fontawesome-webfont.woff"
+        ],
+        "prod": [
+          "css/font-awesome.min.css",
+          "fonts/FontAwesome.otf",
+          "fonts/fontawesome-webfont.eot",
+          "fonts/fontawesome-webfont.svg",
+          "fonts/fontawesome-webfont.ttf",
+          "fonts/fontawesome-webfont.woff"
+        ]
+      }
+    },
+    "toastr": {
+      "main": {
+        "dev": [
+          "toastr.js",
+          "toastr.css"
+        ],
+        "prod": [
+            "toastr.min.js",
+            "toastr.min.js.map",
+            "toastr.min.css"
+        ]
+      }
+    }
+  }
+}
