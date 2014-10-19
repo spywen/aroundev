@@ -1,0 +1,29 @@
+{
+    "MENU_SUPPORT" : "FAQ/Questions !?",
+    "MENU_LANGUAGE" : "Language",
+    "MENU_FR" : "French",
+    "MENU_EN" : "English",
+    "MENU_MY_ACCOUNT" : "Manage my account",
+    "MENU_LOGOUT" : "Log out",
+    "MENU_LOGIN" : "Log in/Sign in",
+
+    "INDEX_POINT_1_TITLE" : "Home sweet home",
+    "INDEX_POINT_2_TITLE" : "Dev tooling",
+    "INDEX_POINT_3_TITLE" : "Free solution",
+    "INDEX_POINT_1_DESC" : "Ô developers all around the world this platform is dedicated to you.",
+    "INDEX_POINT_2_DESC" : "Find here all the tooling you need to dev well and simple with all your collaborators.",
+    "INDEX_POINT_3_DESC" : "Aroundev is a free solution. Good luck for all your projects and have fun !",
+
+    "LOGIN_TITLE" : "Authentication",
+    "LOGIN_LOG_IN_SUCCESS" : "Now, you are connected.",
+    "LOGIN_LOG_IN_FAILED" : "Authentication failed. Wrong login and/or password.",
+    "LOGIN_LOG_OUT_SUCCESS" : "Successfully disconnection.",
+    "LOGIN_LOG_OUT_FAILED" : "Disconnextion failed. Please try again. If the problem persists contact the Aroundev support.",
+    "LOGIN_LOG_IN_FORM_PLACEHOLDER_LOGIN" : "Login",
+    "LOGIN_LOG_IN_FORM_PLACEHOLDER_PASSWORD" : "Password",
+    "LOGIN_LOG_IN_ACTION" : "Log In",
+    "LOGIN_LOG_IN_REMEMBER_ME" : "Remember me",
+
+    "APP_PLANNING_POKER" : "Planning poker"
+
+}

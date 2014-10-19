@@ -40,7 +40,7 @@ public class AppConfigs extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/pages/");
+        resolver.setPrefix("/WEB-INF/");
         resolver.setSuffix(".jsp");
         return resolver;
     }
@@ -49,9 +49,22 @@ public class AppConfigs extends WebMvcConfigurerAdapter {
     public void configureMessageConverters (List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
         mappingJackson2HttpMessageConverter.setObjectMapper(new HibernateAwareObjectMapper());
-
         converters.add(mappingJackson2HttpMessageConverter);
-
         converters.add(new StringHttpMessageConverter());
     }
+
+   /*@Bean
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
+
+        return new EmbeddedServletContainerCustomizer() {
+            @Override
+            public void customize(ConfigurableEmbeddedServletContainerFactory container) {
+                //ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/401.html");
+                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404.html");
+                //ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500.html");
+
+                container.addErrorPages(error404Page);
+            }
+        };
+    }*/
 }

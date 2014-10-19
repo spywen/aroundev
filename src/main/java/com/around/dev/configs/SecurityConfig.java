@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -46,22 +45,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http    .csrf().disable()
+        http
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/admin/**", "/tools/**").authenticated()
             .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/")
-                .failureUrl("/login?auth=fail")
+                .failureUrl("/loginFailed")
                 .passwordParameter("password")
                 .usernameParameter("login")
             .and()
-                .logout().logoutSuccessUrl("/login?logout=1").permitAll()
+                .logout().logoutSuccessUrl("/login?success=1").permitAll()
             .and()
                 .sessionManagement()
                 .maximumSessions(1)
-                .expiredUrl("/login?expired");
+                .expiredUrl("/loginExpired");
 
         http
                 .rememberMe()
@@ -90,4 +90,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+
+
 }

@@ -22,7 +22,7 @@ public class AdminController {
     UserBusiness userBusiness;
 
     @PreAuthorize("hasAnyRole('"+ GroupRoles.ADMIN+"')")
-    @RequestMapping(method = RequestMethod.GET, value = "angulartests")
+    @RequestMapping(method = RequestMethod.GET, value = "tests")
     public ModelAndView angularTestsPage() throws AuthenticateUserException {
         logger.info("Someone acceed to the admin 'angularTests' page. User id = " + userBusiness.getConnectedUser().getId());
         ModelAndView modelAndView = new ModelAndView("admin/angularTests");
