@@ -11,3 +11,33 @@ body{
 .content{
   margin: 0 20px;
 }
+.pointer{
+  cursor: pointer;
+}
+
+/*
+ The animate class is apart of the element and the ng-enter class
+ is attached to the element once the enter animation event is triggered
+*/
+.animation.ng-enter {
+  -webkit-transition: .3s linear all; /* Safari/Chrome */
+  -moz-transition: .3s linear all; /* Firefox */
+  -o-transition: .3s linear all; /* Opera */
+  transition: .3s linear all; /* IE10+ and Future Browsers */
+}
+
+/**
+ * Pre animation -> enter
+ */
+.animation.ng-enter{
+  /* The animation preparation code */
+  opacity: 0;
+}
+
+/**
+ * Post animation -> enter
+ */
+.animation.ng-enter.ng-enter-active {
+  /* The animation code itself */
+  opacity: 1;
+}

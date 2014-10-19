@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Error - Aroundev.com</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="app/img/favicon.png" />
 
     <link rel="stylesheet" href="/app/js/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/app/css/theme/bootstrap.min.css">
@@ -31,6 +33,11 @@
         <div class="row">
             <div class="col-md-12">
                 <i class="fa fa-thumbs-o-down" style="font-size:160px"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="text-align: right;">
+                <a href="/" class="btn btn-default">Return to Aroundev Home Page</a>
             </div>
         </div>
     </div>

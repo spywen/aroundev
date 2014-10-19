@@ -6,14 +6,21 @@
 var aroundevApp = angular.module('aroundevApp', [
     'ngRoute',
     'pascalprecht.translate',
-    'ngCookies'
+    'ngCookies',
+    'ngAnimate'
 ]);
 
 aroundevApp.config(function($routeProvider, $translateProvider, $locationProvider){
     //Routing
     $routeProvider.
-        when('/', {templateUrl: '/app/js/index/html/index.html'})
-        .when('/login', {templateUrl: '/app/js/user/html/login.html'});
+        when('/', {
+            templateUrl: '/app/js/index/html/index.html',
+            controller: 'indexCtrl'
+        })
+        .when('/login', {
+            templateUrl: '/app/js/user/html/login.html',
+            controller: 'userCtrl'
+        });
     $locationProvider.html5Mode(true);//Remove the '#' on the url
 
     //Translate

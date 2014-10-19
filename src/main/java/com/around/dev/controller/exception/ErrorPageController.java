@@ -1,6 +1,7 @@
 package com.around.dev.controller.exception;
 
 import com.google.common.base.Throwables;
+import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,12 @@ import java.text.MessageFormat;
  */
 @Controller
 public class ErrorPageController {
+    private static final Logger logger = Logger.getLogger(ErrorPageController.class);
 
     @RequestMapping("error")
     public ModelAndView customError(HttpServletRequest request, HttpServletResponse response) {
-        // retrieve some useful information from the request
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
         Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
-        // String servletName = (String) request.getAttribute("javax.servlet.error.servlet_name");
         String exceptionMessage = getExceptionMessage(throwable, statusCode);
 
         String requestUri = (String) request.getAttribute("javax.servlet.error.request_uri");
@@ -33,6 +33,8 @@ public class ErrorPageController {
                 statusCode, requestUri, exceptionMessage
         );
 
+        //Log
+        logger.error("Error page : " + message, new Exception(message));
 
         ModelAndView modelAndView = new ModelAndView("error");
         modelAndView.addObject("code", statusCode);

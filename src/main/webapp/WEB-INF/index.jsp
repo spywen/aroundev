@@ -13,6 +13,7 @@
 <head>
     <title>Aroundev</title>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="app/img/favicon.png" />
 
     <!-- inject:css -->
     <link rel="stylesheet" href="/app/js/lib/font-awesome/css/font-awesome.min.css">
@@ -24,8 +25,6 @@
 
     <link rel="stylesheet" href="/app/css/all.min.css">
     <base href="/">
-
-
 </head>
 <body data-ng-cloak>
 
@@ -51,8 +50,8 @@
                         <li class="dropdown" data-ng-controller="translateCtrl">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'MENU_LANGUAGE' | translate }} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a data-ng-click="changeLanguage('fr')"><i class="fa fa-check" data-ng-show="fr"></i> {{ 'MENU_FR' | translate }}</a></li>
-                                <li><a data-ng-click="changeLanguage('en')"><i class="fa fa-check" data-ng-show="en"></i> {{ 'MENU_EN' | translate }}</a> </li>
+                                <li><a data-ng-click="changeLanguage('fr')" class="pointer"><i class="fa fa-check" data-ng-show="fr"></i> {{ 'MENU_FR' | translate }}</a></li>
+                                <li><a data-ng-click="changeLanguage('en')" class="pointer"><i class="fa fa-check" data-ng-show="en"></i> {{ 'MENU_EN' | translate }}</a> </li>
                             </ul>
                         </li>
                         <sec:authorize ifAllGranted="AUTHENTICATED">
@@ -74,9 +73,9 @@
         </nav>
     </div>
 
-    <div class="content" data-ng-view></div>
+    <div class="content {{ pageClass }} animation" data-ng-view>
 
-
+    </div>
 
     <!-- inject:js -->
     <script src="/app/js/lib/jquery/dist/jquery.min.js"></script>
@@ -92,6 +91,7 @@
     <script src="/app/js/lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
     <script src="/app/js/lib/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
     <script src="/app/js/lib/toastr/toastr.min.js"></script>
+    <script src="/app/js/lib/angular-animate/angular-animate.min.js"></script>
     <!-- endinject -->
 
     <script src="/app/js/all.min.js"></script>
