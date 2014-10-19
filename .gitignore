@@ -1,5 +1,9 @@
 .idea/
-dev_assets/node_modules/
+ROOT.iml
+target/
+
+SPA_DEV_ASSETS/bower_components/
+SPA_DEV_ASSETS/node_modules/
 src/main/resources/application.properties
 
 #I commit a first version of the project with files they didn't need to be push on the git repo...
