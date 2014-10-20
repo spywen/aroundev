@@ -8,27 +8,19 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 /**
  * Created by laurent on 19/07/2014.
  */
 @Component
 public class UserBusiness {
     @Autowired
-    UserRepository userRepository;
+    public UserRepository userRepository;
     /**
      * Get
      */
     public long countUserById(int id){
         return userRepository.countById(id);
     }
-
-    /**
-     * Find all
-     * @return
-     */
-    public List<UserAroundev> findAll() { return userRepository.findAll(); }
 
     /**
      * Get the connected user profile

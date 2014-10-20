@@ -10,5 +10,4 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan(value = "com.around.dev.business")
 @EnableTransactionManagement
-public class BusinessConfigs {
-}
+public class BusinessConfigs {}

@@ -178,6 +178,13 @@
             <artifactId>spring-messaging</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+        <!-- Mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+        </dependency>
     </dependencies>
 
     <build>
