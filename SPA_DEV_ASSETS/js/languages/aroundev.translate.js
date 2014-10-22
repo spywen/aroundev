@@ -1,7 +1,11 @@
 /**
  * Created by laurent on 18/10/2014.
  */
-aroundevApp.controller('translateCtrl', function($scope, $translate, $cookies) {
+angular.module('aroundev.translate', [
+    'aroundev.service.auth',
+    'pascalprecht.translate',
+    'ngCookies'
+]).controller('translateCtrl', function($scope, $translate, $cookies) {
     $scope.en = false;
     $scope.fr = false;
     var currentLanguage = $cookies.NG_TRANSLATE_LANG_KEY;

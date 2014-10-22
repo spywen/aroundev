@@ -1,6 +1,7 @@
 /**
  * Created by laurent on 19/10/2014.
  */
-aroundevApp.controller('indexCtrl', function($scope) {
+angular.module('aroundev.index', [
+]).controller('indexCtrl', function($scope) {
     $scope.pageClass = 'indexPageClass';
 });

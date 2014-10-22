@@ -3,14 +3,14 @@
  */
 'use strict';
 
-var aroundevApp = angular.module('aroundevApp', [
+angular.module('aroundev', [
     'ngRoute',
-    'pascalprecht.translate',
-    'ngCookies',
-    'ngAnimate'
-]);
-
-aroundevApp.config(function($routeProvider, $translateProvider, $locationProvider){
+    'ngAnimate',
+    'aroundev.translate',
+    'aroundev.menu',
+    'aroundev.index',
+    'aroundev.user'
+]).config(function($routeProvider, $translateProvider, $locationProvider){
     //Routing
     $routeProvider.
         when('/', {

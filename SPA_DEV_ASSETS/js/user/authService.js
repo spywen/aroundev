@@ -1,7 +1,9 @@
 /**
  * Created by laurent on 19/10/2014.
  */
-aroundevApp.service('authService',function($translate, $http, $location){
+angular.module('aroundev.service.auth', [
+    'pascalprecht.translate'
+]).service('authService',function($translate, $http, $location){
 
     this.login = function(login,password){
         var data = "login="+login+"&password="+password;
