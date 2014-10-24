@@ -13,26 +13,33 @@ angular.module('aroundev.user', [
         $scope.progressBarValue = 20;
 
         authService.login($scope.login, $scope.password).then(function(result){
-            toastr.success($translate.instant('LOGIN_LOG_IN_SUCCESS'));
-            $scope.progressBarValue = 60;
-            var profil = authService.getProfil().then(function(result){
+            $interval(function(){
+                $scope.progressBarValue = 60;
+                authService.getProfil().then(function(result){
+                    $scope.progressBarValue = 100;
+                    $scope.progressBarType = 'progress-bar-success';
+                    $interval(function(){
+                        toastr.success($translate.instant('LOGIN_LOG_IN_SUCCESS'));
+                        $rootScope.$emit ('user:logged', result);
+                        $location.path('/');
+                        $interval(function(){
+                            return $scope.resetProgressBar();
+                        }, 500, 1);
+                    }, 1000, 1);
+                }, function(error){
+                    toastr.error($translate.instant('COMMON_ERROR'));
+                    $scope.progressBarType = 'progress-bar-danger';
+                });
+            }, 1000, 1);
+        }, function(error){
+            $interval(function(){
+                toastr.error($translate.instant('LOGIN_LOG_IN_FAILED'));
                 $scope.progressBarValue = 100;
-                $scope.progressBarType = 'progress-bar-success';
+                $scope.progressBarType = 'progress-bar-danger';
                 $interval(function(){
                     return $scope.resetProgressBar();
-                }, 2000, 1);
-                $rootScope.$emit ('user:logged', result);
-                $location.path('/');
-            }, function(error){
-                toastr.error($translate.instant('COMMON_ERROR'));
-                $scope.progressBarType = 'progress-bar-danger';
-            });
-        }, function(error){
-            toastr.error($translate.instant('LOGIN_LOG_IN_FAILED'));
-            $scope.progressBarType = 'progress-bar-danger';
-            $interval(function(){
-                return $scope.resetProgressBar();
-            }, 4000, 1);
+                }, 4000, 1);
+            }, 1000, 1);
         });
     };
 
