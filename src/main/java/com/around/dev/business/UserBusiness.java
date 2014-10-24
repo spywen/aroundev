@@ -1,7 +1,7 @@
 package com.around.dev.business;
 
 import com.around.dev.entity.UserAroundev;
-import com.around.dev.exception.AuthenticateUserException;
+import com.around.dev.exception.User.UserNotFoundException;
 import com.around.dev.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,14 +25,14 @@ public class UserBusiness {
     /**
      * Get the connected user profile
      * @return
-     * @throws AuthenticateUserException
+     * @throws com.around.dev.exception.User.UserNotFoundException
      */
-    public UserAroundev getConnectedUser() throws AuthenticateUserException {
+    public UserAroundev getConnectedUser() throws UserNotFoundException {
         if (SecurityContextHolder.getContext() != null && SecurityContextHolder.getContext().getAuthentication() != null && SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null) {
             User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String name = user.getUsername();
             return userRepository.findByLogin(name);
         }
-        throw new AuthenticateUserException("USER_NOT_CONNECTED", "User not connected.");
+        throw new UserNotFoundException();
     }
 }

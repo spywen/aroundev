@@ -2,7 +2,7 @@ package com.around.dev;
 
 import com.around.dev.business.UserBusiness;
 import com.around.dev.entity.UserAroundev;
-import com.around.dev.exception.AuthenticateUserException;
+import com.around.dev.exception.User.UserNotFoundException;
 import com.around.dev.repository.UserRepository;
 import com.around.dev.utils.enums.EnumRole;
 import org.junit.Assert;
@@ -58,7 +58,7 @@ public class UserBusinessTest {
     }
 
     @Test
-    public void findByLogin() throws AuthenticateUserException {
+    public void findByLogin() throws UserNotFoundException {
         UserAroundev lolo = new UserAroundev();
         lolo.setFirstname("lolo");
         Mockito.when(userRepository.findByLogin("lolo")).thenReturn(lolo);
@@ -74,7 +74,7 @@ public class UserBusinessTest {
     }
 
     @Test
-    public void getConnectedUser() throws AuthenticateUserException {
+    public void getConnectedUser() throws UserNotFoundException {
         Mockito.when(userRepository.findByLogin("admin")).thenReturn(admin);
 
         UserAroundev userReturned = userBusiness.getConnectedUser();

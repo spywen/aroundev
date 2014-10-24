@@ -1,5 +1,8 @@
 package com.around.dev.exception;
 
+import com.around.dev.exception.User.RightException;
+import com.around.dev.exception.User.UserNotFoundException;
+
 /**
  * Created by laurent on 26/07/2014.
  */
@@ -19,7 +22,7 @@ public class ExceptionInfo {
     }
 
     //Authentification required
-    public  ExceptionInfo(AuthenticateUserException e){
+    public  ExceptionInfo(UserNotFoundException e){
         this.message = e.getMessage();
         this.type = e.getType();
     }

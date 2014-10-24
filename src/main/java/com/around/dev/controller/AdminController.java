@@ -1,7 +1,7 @@
 package com.around.dev.controller;
 
 import com.around.dev.business.UserBusiness;
-import com.around.dev.exception.AuthenticateUserException;
+import com.around.dev.exception.User.UserNotFoundException;
 import com.around.dev.utils.GroupRoles;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class AdminController {
 
     @PreAuthorize("hasAnyRole('"+ GroupRoles.ADMIN+"')")
     @RequestMapping(method = RequestMethod.GET, value = "tests")
-    public ModelAndView angularTestsPage() throws AuthenticateUserException {
+    public ModelAndView angularTestsPage() throws UserNotFoundException {
         logger.info("Someone acceed to the admin 'angularTests' page. User id = " + userBusiness.getConnectedUser().getId());
         ModelAndView modelAndView = new ModelAndView("admin/angularTests");
         return modelAndView;

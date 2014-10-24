@@ -24,6 +24,9 @@
     "LOGIN_LOG_IN_ACTION" : "Log In",
     "LOGIN_LOG_IN_REMEMBER_ME" : "Remember me",
 
-    "APP_PLANNING_POKER" : "Planning poker"
+    "APP_PLANNING_POKER" : "Planning poker",
+
+    "COMMON_ERROR" : "Unfortunately, an error occured. Please contact the Aroundev.com support team if the problem persist."
+
 
 }
