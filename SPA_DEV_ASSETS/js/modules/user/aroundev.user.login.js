@@ -27,6 +27,7 @@ angular.module('aroundev.user.login', [
 })
 .controller('loginCtrl', function($translate, $scope, authService, $interval, $location, $rootScope, localConfig) {
 
+    //Variable to manage $interval functionnality
     $scope.chrono;
 
     $scope.pageClass = 'loginPageClass';
