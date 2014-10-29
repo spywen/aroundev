@@ -7,7 +7,7 @@
 var gulp = require('gulp'),//GULP !!!
     less = require('gulp-less'),//Convert less to css
     uglify = require('gulp-uglify'),//Uglify js
-    stripDebug = require('gulp-strip-debug'),//Remove console.log for the prod scripts
+    stripDebug = require('strip-debug'),//Remove console.log for the prod scripts
     plumber = require('gulp-plumber'),//Avoid bugs during gulp watch
     minifycss = require('gulp-minify-css'),//minify css
     inject = require('gulp-inject'),//Inject css/js in page
@@ -54,7 +54,7 @@ gulp.task('script', function(){
         .pipe(plumber())
         .pipe(concat('all.min.js'))
         .pipe(ngAnnotate())
-        .pipe(gulpif(!debug, stripDebug()))
+        .pipe(gulpif(!debug, stripDebug))
         .pipe(gulpif(!debug, uglify()))
         .pipe(gulp.dest(scriptsBaseDestination));
 });
