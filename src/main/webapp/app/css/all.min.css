@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
 /*Content which take in the all page content in each page*/
 body {
   margin: 0 0px;
@@ -18,11 +19,7 @@ body {
 .pointer {
   cursor: pointer;
 }
-/*
- The animate class is apart of the element and the ng-enter class
- is attached to the element once the enter animation event is triggered
-*/
-.animation.ng-enter {
+.view-animation.ng-enter {
   -webkit-transition: .3s linear all;
   /* Safari/Chrome */
   -moz-transition: .3s linear all;
@@ -31,19 +28,9 @@ body {
   /* Opera */
   transition: .3s linear all;
   /* IE10+ and Future Browsers */
-}
-/**
- * Pre animation -> enter
- */
-.animation.ng-enter {
-  /* The animation preparation code */
   opacity: 0;
 }
-/**
- * Post animation -> enter
- */
-.animation.ng-enter.ng-enter-active {
-  /* The animation code itself */
+.view-animation.ng-enter.ng-enter-active {
   opacity: 1;
 }
 .indexPageClass .title {
@@ -51,7 +38,9 @@ body {
   margin-top: 80px;
 }
 .indexPageClass .title h1 {
-  font-size: 50px;
+  font-size: 52px;
+  font-family: 'Raleway', sans-serif;
+  text-shadow: rgba(181, 181, 181, 0.42) 8px 10px 7px;
 }
 .indexPageClass .title h1 img {
   width: 60px;

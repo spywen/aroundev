@@ -4,30 +4,37 @@
 'use strict';
 
 angular.module('aroundev', [
-    'ngRoute',
-    'ngAnimate',
-    'aroundev.translate',
-    'aroundev.menu',
-    'aroundev.index',
-    'aroundev.user'
-]).config(function($routeProvider, $translateProvider, $locationProvider){
+    'ngAnimate'
+    ,'aroundev.translate'
+    ,'aroundev.menu'
+    ,'aroundev.index'
+    ,'aroundev.user.login'
+    ,'aroundev.service.security'
+    ,'ngRoute'
+])
+.config(function($translateProvider, $locationProvider, $routeProvider){
     //Routing
-    $routeProvider.
-        when('/', {
-            templateUrl: '/app/js/index/html/index.html',
-            controller: 'indexCtrl'
-        })
-        .when('/login', {
-            templateUrl: '/app/js/user/html/login.html',
-            controller: 'userCtrl'
-        });
+    $routeProvider.otherwise({redirectTo: '/'});
+
+    //Location
     $locationProvider.html5Mode(true);//Remove the '#' on the url
 
     //Translate
     $translateProvider.useStaticFilesLoader({
-        prefix: '/app/js/languages/json/',
+        prefix: '/app/js/modules/languages/json/',
         suffix: '.json'
     });
     $translateProvider.useCookieStorage();
     $translateProvider.preferredLanguage('en');
+})
+.value('user', {value: ''})
+.run(function(authService, securityService, $location, $rootScope){
+    authService.getProfil().then(function(result){
+        $rootScope.$emit ('user:logged', result);
+        if(!securityService.hasRole('AUTHENTICATED')){
+            $location.path('/login');
+        }
+    },function(){
+        console.log('Person not connected');
+    });
 });

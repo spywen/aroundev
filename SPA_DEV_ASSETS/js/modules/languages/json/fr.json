@@ -26,5 +26,7 @@
 
     "APP_PLANNING_POKER" : "Planning poker",
 
-    "COMMON_ERROR" : "Malheureusement, une erreur est survenue... Si le problème persiste veuillez contacter le support de Aroundev.com"
+    "COMMON_ERROR" : "Malheureusement, une erreur est survenue... Si le problème persiste veuillez contacter le support de Aroundev.com",
+
+    "VIEW_NOT_CONNECTED" : "Vous n'êtes pas connecté. Veuillez vous connecter pour accéder à cette page."
 }

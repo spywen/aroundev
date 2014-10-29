@@ -11,7 +11,7 @@
     "INDEX_POINT_2_TITLE" : "Dev tooling",
     "INDEX_POINT_3_TITLE" : "Free solution",
     "INDEX_POINT_1_DESC" : "Ô developers all around the world this platform is dedicated to you.",
-    "INDEX_POINT_2_DESC" : "Find here all the tooling you need to dev well and simple with all your collaborators.",
+    "INDEX_POINT_2_DESC" : "Find here all the tooling you need to dev in a well and simple way with all your collaborators.",
     "INDEX_POINT_3_DESC" : "Aroundev is a free solution. Good luck for all your projects and have fun !",
 
     "LOGIN_TITLE" : "Authentication",
@@ -26,7 +26,7 @@
 
     "APP_PLANNING_POKER" : "Planning poker",
 
-    "COMMON_ERROR" : "Unfortunately, an error occured. Please contact the Aroundev.com support team if the problem persist."
+    "COMMON_ERROR" : "Unfortunately, an error occured. Please contact the Aroundev.com support team if the problem persist.",
 
-
+    "VIEW_NOT_CONNECTED" : "You are not connected. Please log in before trying access to this page."
 }

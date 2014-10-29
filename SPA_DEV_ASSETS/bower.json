@@ -46,6 +46,7 @@
       "main": {
         "dev": [
           "dist/js/bootstrap.js",
+          "dist/css/bootstrap.css",
           "dist/fonts/glyphicons-halflings-regular.eot",
           "dist/fonts/glyphicons-halflings-regular.svg",
           "dist/fonts/glyphicons-halflings-regular.ttf",
@@ -53,6 +54,7 @@
         ],
         "prod": [
           "dist/js/bootstrap.min.js",
+          "dist/css/bootstrap.min.css",
           "dist/fonts/glyphicons-halflings-regular.eot",
           "dist/fonts/glyphicons-halflings-regular.svg",
           "dist/fonts/glyphicons-halflings-regular.ttf",

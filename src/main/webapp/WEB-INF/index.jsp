@@ -16,14 +16,13 @@
     <link rel="icon" type="image/png" href="app/img/favicon.png" />
 
     <!-- inject:css -->
+    <link rel="stylesheet" href="/app/js/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/app/js/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/app/js/lib/toastr/toastr.min.css">
     <!-- endinject -->
 
     <!-- flatly boostrap theme
     <link rel="stylesheet" href="/app/css/theme/bootstrap.min.css">-->
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/app/css/all.min.css">
     <base href="/">
@@ -56,36 +55,24 @@
                                 <li><a data-ng-click="changeLanguage('en')" class="pointer"><i class="fa fa-check" data-ng-show="en"></i> {{ 'MENU_EN' | translate }}</a> </li>
                             </ul>
                         </li>
-                        <sec:authorize ifAllGranted="AUTHENTICATED"><!-- in the case of a page reload -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> <sec:authentication property="principal.username"/> <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">{{ 'MENU_MY_ACCOUNT' | translate }}</a></li>
-                                    <li class="divider"></li>
-                                    <li><a data-ng-click="logOut()" href="#">{{ 'MENU_LOGOUT' | translate }}</a></li>
-                                </ul>
-                            </li>
-                        </sec:authorize>
-                        <sec:authorize ifNotGranted="AUTHENTICATED">
-                            <li class="dropdown" data-ng-show="logged"><!-- in the case of a ajax logIn-->
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> {{ username }} <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">{{ 'MENU_MY_ACCOUNT' | translate }}</a></li>
-                                    <li class="divider"></li>
-                                    <li><a data-ng-click="logOut()" href="#">{{ 'MENU_LOGOUT' | translate }}</a></li>
-                                </ul>
-                            </li>
-                            <li data-ng-hide="logged">
-                                <a href="/login">{{ 'MENU_LOGIN' | translate }}</a>
-                            </li>
-                        </sec:authorize>
+                        <li class="dropdown" data-ng-show="logged"><!-- in the case of a ajax logIn-->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> {{ username }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">{{ 'MENU_MY_ACCOUNT' | translate }}</a></li>
+                                <li class="divider"></li>
+                                <li><a data-ng-click="logOut()" href="#">{{ 'MENU_LOGOUT' | translate }}</a></li>
+                            </ul>
+                        </li>
+                        <li data-ng-hide="logged">
+                            <a href="/login">{{ 'MENU_LOGIN' | translate }}</a>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </div>
 
-    <div class="content {{ pageClass }} animation" data-ng-view>
+    <div class="content {{ pageClass }} view-animation" data-ng-view>
 
     </div>
 
