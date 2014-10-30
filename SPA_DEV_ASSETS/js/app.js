@@ -29,6 +29,10 @@ angular.module('aroundev', [
     $translateProvider.preferredLanguage('en');
 })
 .value('user', {value: ''})
+.value('configs', {
+    defaultLanguage: '"en"',
+    translateAllowed: false
+})
 .run(function(authService, securityService, $location, $rootScope){
     authService.getProfil().then(function(result){
         $rootScope.$emit ('user:logged', result);
