@@ -7,7 +7,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "jquery": "~2.1.1",
     "lodash": "~2.4.1",
     "angular": "~1.3.0",
     "angular-bootstrap": "~0.11.2",
@@ -20,19 +19,10 @@
     "angular-translate-storage-cookie": "~2.4.1",
     "angular-translate-loader-url": "~2.4.1",
     "font-awesome": "~4.2.0",
-    "toastr": "~2.0.3",
-    "angular-animate": "~1.3.0"
+    "angular-animate": "~1.3.0",
+    "angular-toastr": "0.5.1"
   },
   "overrides": {
-    "jquery": {
-      "main": {
-        "dev": "dist/jquery.js",
-        "prod": [
-          "dist/jquery.min.js",
-          "dist/jquery.min.map"
-        ]
-      }
-    },
     "angular": {
       "main": {
         "dev": "angular.js",
@@ -42,10 +32,21 @@
         ]
       }
     },
+    "angular-toastr": {
+      "main": {
+        "dev": [
+          "dist/angular-toastr.js",
+          "dist/angular-toastr.css"
+        ],
+        "prod": [
+          "dist/angular-toastr.min.js",
+          "dist/angular-toastr.min.css"
+        ]
+      }
+    },
     "bootstrap": {
       "main": {
         "dev": [
-          "dist/js/bootstrap.js",
           "dist/css/bootstrap.css",
           "dist/fonts/glyphicons-halflings-regular.eot",
           "dist/fonts/glyphicons-halflings-regular.svg",
@@ -53,7 +54,6 @@
           "dist/fonts/glyphicons-halflings-regular.woff"
         ],
         "prod": [
-          "dist/js/bootstrap.min.js",
           "dist/css/bootstrap.min.css",
           "dist/fonts/glyphicons-halflings-regular.eot",
           "dist/fonts/glyphicons-halflings-regular.svg",
@@ -64,8 +64,8 @@
     },
     "angular-bootstrap": {
       "main": {
-        "dev": "ui-bootstrap-tpls.js",
-        "prod": "ui-bootstrap-tpls.min.js"
+        "dev": "ui-bootstrap.js",
+        "prod": "ui-bootstrap.min.js"
       }
     },
     "angular-route": {
@@ -111,13 +111,13 @@
       }
     },
     "angular-animate": {
-        "main": {
-            "dev": "angular-animate.js",
-            "prod": [
-                "angular-animate.min.js",
-                "angular-animate.min.js.map"
-            ]
-        }
+      "main": {
+        "dev": "angular-animate.js",
+        "prod": [
+          "angular-animate.min.js",
+          "angular-animate.min.js.map"
+        ]
+      }
     },
     "lodash": {
       "main": {
@@ -150,19 +150,9 @@
           "fonts/fontawesome-webfont.woff"
         ]
       }
-    },
-    "toastr": {
-      "main": {
-        "dev": [
-          "toastr.js",
-          "toastr.css"
-        ],
-        "prod": [
-          "toastr.min.js",
-          "toastr.min.js.map",
-          "toastr.min.css"
-        ]
-      }
     }
+  },
+  "devDependencies": {
+    "angular-toastr": "~0.5.1"
   }
 }

@@ -7,6 +7,7 @@ angular.module('aroundev.user.login', [
     ,'pascalprecht.translate'
     ,'ngAnimate'
     ,'ngRoute'
+    ,'toastr'
 ])
 .config(function($routeProvider){
     $routeProvider.when('/login', {
@@ -25,7 +26,7 @@ angular.module('aroundev.user.login', [
         console.log('Person not connected');
     });
 })
-.controller('loginCtrl', function($translate, $scope, authService, $interval, $location, $rootScope, localConfig) {
+.controller('loginCtrl', function($translate, $scope, authService, $interval, $location, $rootScope, localConfig, toastr) {
 
     //Variable to manage $interval functionnality
     $scope.chrono;

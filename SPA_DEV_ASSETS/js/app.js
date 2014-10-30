@@ -11,6 +11,7 @@ angular.module('aroundev', [
     ,'aroundev.user.login'
     ,'aroundev.service.security'
     ,'ngRoute'
+    ,'ui.bootstrap'
 ])
 .config(function($translateProvider, $locationProvider, $routeProvider){
     //Routing

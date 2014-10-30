@@ -2,13 +2,14 @@
  * Created by laurent on 19/10/2014.
  */
 angular.module('aroundev.service.auth', [
-    'pascalprecht.translate',
-    'restangular'
+    'pascalprecht.translate'
+    ,'restangular'
+    ,'toastr'
 ])
 .config(function(RestangularProvider){
     //RestangularProvider.setBaseUrl('/api/user/');
 })
-.service('authService',function($translate, $http, $location, Restangular, $q, user){
+.service('authService',function($translate, $http, $location, Restangular, $q, user, toastr){
 
     this.login = function(login,password){
         return $q(function(resolve, reject){

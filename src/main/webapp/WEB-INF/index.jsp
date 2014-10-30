@@ -16,9 +16,9 @@
     <link rel="icon" type="image/png" href="app/img/favicon.png" />
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="/app/js/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/app/js/lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/app/js/lib/toastr/toastr.min.css">
+    <link rel="stylesheet" href="/app/js/lib/angular-toastr/dist/angular-toastr.min.css">
+    <link rel="stylesheet" href="/app/js/lib/bootstrap/dist/css/bootstrap.min.css">
     <!-- endinject -->
 
     <!-- flatly boostrap theme
@@ -37,20 +37,18 @@
 
 
     <!-- inject:js -->
-    <script src="/app/js/lib/jquery/dist/jquery.min.js"></script>
     <script src="/app/js/lib/lodash/dist/lodash.compat.min.js"></script>
     <script src="/app/js/lib/angular/angular.min.js"></script>
-    <script src="/app/js/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/app/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/app/js/lib/restangular/dist/restangular.min.js"></script>
-    <script src="/app/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/app/js/lib/angular-cookies/angular-cookies.min.js"></script>
     <script src="/app/js/lib/angular-route/angular-route.min.js"></script>
     <script src="/app/js/lib/angular-translate/angular-translate.min.js"></script>
     <script src="/app/js/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
     <script src="/app/js/lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
     <script src="/app/js/lib/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
-    <script src="/app/js/lib/toastr/toastr.min.js"></script>
     <script src="/app/js/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="/app/js/lib/angular-toastr/dist/angular-toastr.min.js"></script>
     <!-- endinject -->
 
     <script src="/app/js/all.min.js"></script>
