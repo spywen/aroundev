@@ -2,9 +2,8 @@
  * Created by laurent on 19/10/2014.
  */
 angular.module('aroundev.service.auth', [
-    'pascalprecht.translate'
-    ,'restangular'
-    ,'toastr'
+    'pascalprecht.translate',
+    'restangular'
 ])
 .config(function(RestangularProvider){
     //RestangularProvider.setBaseUrl('/api/user/');
@@ -13,12 +12,7 @@ angular.module('aroundev.service.auth', [
 
     this.login = function(login,password){
         return $q(function(resolve, reject){
-            var data = {
-                "login": login,
-                "password": password
-            };
-            var dataEncoded = $.param(data);
-            Restangular.one('login').customPOST(dataEncoded, undefined, undefined, {'Content-Type': 'application/x-www-form-urlencoded'}).then(function(){
+            Restangular.one('login').customPOST("login="+login+"&password="+password, undefined, undefined, {'Content-Type': 'application/x-www-form-urlencoded'}).then(function(){
                 resolve(true);
             },function(){
                 reject(false);
