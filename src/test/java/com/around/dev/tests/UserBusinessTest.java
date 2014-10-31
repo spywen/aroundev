@@ -1,4 +1,4 @@
-package com.around.dev;
+package com.around.dev.tests;
 
 import com.around.dev.business.UserBusiness;
 import com.around.dev.entity.UserAroundev;
@@ -29,11 +29,9 @@ import java.util.List;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class UserBusinessTest {
-    @InjectMocks
-    public UserBusiness userBusiness;
+    @InjectMocks public UserBusiness userBusiness;
 
-    @Mock
-    UserRepository userRepository;
+    @Mock UserRepository userRepository;
 
     static UserAroundev admin = new UserAroundev();
 
@@ -58,7 +56,7 @@ public class UserBusinessTest {
     }
 
     @Test
-    public void findByLogin() throws UserNotFoundException {
+    public void findByLogin_Test() throws UserNotFoundException {
         UserAroundev lolo = new UserAroundev();
         lolo.setFirstname("lolo");
         Mockito.when(userRepository.findByLogin("lolo")).thenReturn(lolo);
@@ -68,13 +66,13 @@ public class UserBusinessTest {
     }
 
     @Test
-    public void getConnectectedUser_throughServiceSecurityContext(){
+    public void getConnectectedUser_throughServiceSecurityContext_Test(){
         User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Assert.assertSame(user.getUsername(), "admin");
     }
 
     @Test
-    public void getConnectedUser() throws UserNotFoundException {
+    public void getConnectedUser_Test() throws UserNotFoundException {
         Mockito.when(userRepository.findByLogin("admin")).thenReturn(admin);
 
         UserAroundev userReturned = userBusiness.getConnectedUser();
