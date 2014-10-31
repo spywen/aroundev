@@ -28,7 +28,7 @@ import java.util.List;
  * Created by laurent on 20/10/2014.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class UserBusinessTest {
+public class UserBusinessTests {
     @InjectMocks public UserBusiness userBusiness;
 
     @Mock UserRepository userRepository;
