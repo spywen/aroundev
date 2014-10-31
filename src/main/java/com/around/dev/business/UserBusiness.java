@@ -16,13 +16,6 @@ public class UserBusiness {
     @Autowired
     public UserRepository userRepository;
     /**
-     * Get
-     */
-    public long countUserById(int id){
-        return userRepository.countById(id);
-    }
-
-    /**
      * Get the connected user profile
      * @return
      * @throws com.around.dev.exception.User.UserNotFoundException

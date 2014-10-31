@@ -7,7 +7,9 @@ import com.around.dev.repository.UserRepository;
 import com.around.dev.utils.enums.EnumRole;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -26,14 +28,15 @@ import java.util.List;
 
 /**
  * Created by laurent on 20/10/2014.
+ * REMARK !!! : for all testing classes finished their name by '...Tests'
  */
 @RunWith(MockitoJUnitRunner.class)
 public class UserBusinessTests {
     @InjectMocks public UserBusiness userBusiness;
-
     @Mock UserRepository userRepository;
-
     static UserAroundev admin = new UserAroundev();
+    @Rule public ExpectedException thrown = ExpectedException.none();
+
 
     @Before
     public void onSetUp() {
@@ -56,7 +59,7 @@ public class UserBusinessTests {
     }
 
     @Test
-    public void findByLogin_Test() throws UserNotFoundException {
+    public void findByLogin() throws UserNotFoundException {
         UserAroundev lolo = new UserAroundev();
         lolo.setFirstname("lolo");
         Mockito.when(userRepository.findByLogin("lolo")).thenReturn(lolo);
@@ -66,13 +69,13 @@ public class UserBusinessTests {
     }
 
     @Test
-    public void getConnectectedUser_throughServiceSecurityContext_Test(){
+    public void getConnectectedUser_throughServiceSecurityContext(){
         User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Assert.assertSame(user.getUsername(), "admin");
     }
 
     @Test
-    public void getConnectedUser_Test() throws UserNotFoundException {
+    public void getConnectedUser() throws UserNotFoundException {
         Mockito.when(userRepository.findByLogin("admin")).thenReturn(admin);
 
         UserAroundev userReturned = userBusiness.getConnectedUser();
@@ -81,5 +84,14 @@ public class UserBusinessTests {
         //Roles
         //Assert.assertNotNull(userReturned.getRoles());
         //Assert.assertSame(userReturned.getRoles().size(), 2);
+    }
+
+
+    @Test(expected=UserNotFoundException.class)
+    public void getConnectedUser_notConnected() throws UserNotFoundException {
+        //Remove connected user
+        SecurityContextHolder.getContext().setAuthentication(null);
+
+        userBusiness.getConnectedUser();
     }
 }
