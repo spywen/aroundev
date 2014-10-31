@@ -9,7 +9,7 @@
 
     <properties>
         <spring.version>4.0.6.RELEASE</spring.version>
-        <log4j.version>1.2.17</log4j.version>
+        <log4j.version>1.7.7</log4j.version>
         <javaxServlet.version>3.0.1</javaxServlet.version>
         <javaxServletJsp.version>2.1</javaxServletJsp.version>
         <junit.version>4.11</junit.version>
@@ -97,11 +97,22 @@
 
         <!-- Log4j -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
             <version>${log4j.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
         <!-- JPA -->
         <dependency>
             <groupId>org.springframework.data</groupId>
