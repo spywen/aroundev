@@ -2,34 +2,34 @@
  * Created by laurent on 19/10/2014.
  */
 angular.module('aroundev.user.login', [
-    'aroundev.service.auth'
-    ,'aroundev.service.security'
-    ,'pascalprecht.translate'
-    ,'ngAnimate'
-    ,'ngRoute'
-    ,'toastr'
+    'aroundev.service.auth',
+    'pascalprecht.translate',
+    'ngRoute',
+    'toastr'
 ])
 .config(function($routeProvider){
     $routeProvider.when('/login', {
         templateUrl: '/app/js/modules/user/view/login.html',
-        controller: 'loginCtrl'
+        controller: 'loginCtrl',
+        resolve: {
+            searchResults: ['$location', 'authService', 'securityService', function ($location, authService, securityService) {
+                authService.getProfil().then(function(){
+                    if(securityService.hasRole('AUTHENTICATED')){
+                        console.log('Cannot access to the login page : already connected.');
+                        $location.path('/');
+                    }
+                },function(){
+                    console.log('Person not connected');
+                });
+            }]
+        }
     });
 })
 .constant('localConfig', { connexionLatence : 1000 })
-.run(function(authService, securityService, $location){
-    authService.getProfil().then(function(){
-        if(securityService.hasRole('AUTHENTICATED')){
-            console.log('Cannot access to the login page : already connected.');
-            $location.path('/');
-        }
-    },function(){
-        console.log('Person not connected');
-    });
-})
 .controller('loginCtrl', function($translate, $scope, authService, $interval, $location, $rootScope, localConfig, toastr) {
 
     //Variable to manage $interval functionnality
-    $scope.chrono;
+    $scope.chrono = undefined;
 
     $scope.pageClass = 'loginPageClass';
 

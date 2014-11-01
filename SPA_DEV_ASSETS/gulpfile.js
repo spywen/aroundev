@@ -16,7 +16,8 @@ var gulp = require('gulp'),//GULP !!!
     args = require('yargs').argv,//gulp arguments to parameterize gul commands
     ngAnnotate = require('gulp-ng-annotate'),//automatic angular annotations
     bowerfiles = require('main-bower-files'),//Manage bower plugins files to inject
-    gulpif = require('gulp-if');//Gulp if logic
+    gulpif = require('gulp-if'),//Gulp if logic
+    jshint = require('gulp-jshint');//JS quality tools
 
 
 //Location
@@ -49,7 +50,9 @@ gulp.task('filesToCopy', function(){
         .pipe(gulp.dest(scriptsBaseDestination));
 });
 //Script
-gulp.task('script', function(){
+//Quality task will run before script task.
+//If a quality error occured the script task will not be executed
+gulp.task('script', ['quality'], function(){
     return gulp.src(scriptsLocation)
         .pipe(plumber())
         .pipe(concat('all.min.js'))
@@ -67,10 +70,17 @@ gulp.task('inject', function() {
     gulp.src(bowerfiles({checkExistence : true, read: true, debugging : false, env : env}), {base: 'bower_components'})
         .pipe(gulp.dest(pluginsScriptsDestination));
 });
-
+//Quality
+gulp.task('quality', function(){
+    return gulp.src(scriptsLocation)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(jshint.reporter('fail'));
+});
 
 //Commands :
-// command : gulp (--debug=true or --debug=false)
+//Parameter : gulp (--debug=true or --debug=false),
+//Remark : task executed in parallel (no order defined here)
 gulp.task('default', ['script', 'filesToCopy', 'style']);
 //Parameter : gulp plugins (--env=dev or --env=prod)
 gulp.task('plugins', ['inject']);

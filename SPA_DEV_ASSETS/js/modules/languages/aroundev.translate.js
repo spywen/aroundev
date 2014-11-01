@@ -5,7 +5,17 @@ angular.module('aroundev.translate', [
     'aroundev.service.auth',
     'pascalprecht.translate',
     'ngCookies'
-]).controller('translateCtrl', function($scope, $translate, $cookies, configs) {
+])
+.config(function($translateProvider){
+    //Translate
+    $translateProvider.useStaticFilesLoader({
+        prefix: '/app/js/modules/languages/json/',
+        suffix: '.json'
+    });
+    $translateProvider.useCookieStorage();
+    $translateProvider.preferredLanguage('en');
+})
+.controller('translateCtrl', function($scope, $translate, $cookies, configs) {
 
     /*Enabled or disabled the translate feature*/
     $scope.translateAllowed = configs.translateAllowed;
