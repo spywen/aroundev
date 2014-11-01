@@ -8,23 +8,32 @@ angular.module('aroundev', [
     'aroundev.menu',
     'aroundev.index',
     'aroundev.user.login',
-    'aroundev.service.security'
+    'aroundev.service.auth'
 ])
 .config(function($translateProvider, $locationProvider){
     $locationProvider.html5Mode(true);//Remove the '#' on the url
 })
-.value('user', {value: ''})
-.value('configs', {
+.value('user', null)
+.constant('configs', {
     defaultLanguage: '"en"',
     translateAllowed: false
 })
-.run(function(authService, securityService, $location, $rootScope){
-    authService.getProfil().then(function(result){
+.run(function(authService, $location, $rootScope, $state){
+    authService.getProfile().then(function(result){
         $rootScope.$broadcast('user:logged', result);
-        if(!securityService.hasRole('AUTHENTICATED')){
-            $location.path('/login');
-        }
     },function(){
         console.log('Person not connected');
+    });
+
+    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+        if (toState.authenticate){
+            authService.isAuthenticated().then(function(result){
+                if(!result){
+                    // User isn’t authenticated
+                    $state.transitionTo("login");
+                    event.preventDefault();
+                }
+            },function(){});
+        }
     });
 });

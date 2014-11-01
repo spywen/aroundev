@@ -4,29 +4,19 @@
 angular.module('aroundev.user.login', [
     'aroundev.service.auth',
     'pascalprecht.translate',
-    'ngRoute',
+    'ui.router',
     'toastr'
 ])
-.config(function($routeProvider){
-    $routeProvider.when('/login', {
+.config(function($stateProvider, $urlRouterProvider){
+    $stateProvider.state('login', {
+        url:'/login',
         templateUrl: '/app/js/modules/user/view/login.html',
         controller: 'loginCtrl',
-        resolve: {
-            searchResults: ['$location', 'authService', 'securityService', function ($location, authService, securityService) {
-                authService.getProfil().then(function(){
-                    if(securityService.hasRole('AUTHENTICATED')){
-                        console.log('Cannot access to the login page : already connected.');
-                        $location.path('/');
-                    }
-                },function(){
-                    console.log('Person not connected');
-                });
-            }]
-        }
+        authenticate: false
     });
 })
 .constant('localConfig', { connexionLatence : 1000 })
-.controller('loginCtrl', function($translate, $scope, authService, $interval, $location, $rootScope, localConfig, toastr) {
+.controller('loginCtrl', function($translate, $scope, authService, $interval, $location, $rootScope, localConfig, toastr, $state) {
 
     //Variable to manage $interval functionnality
     $scope.chrono = undefined;
@@ -40,13 +30,13 @@ angular.module('aroundev.user.login', [
         $scope.chrono = $interval(function(){
             authService.login($scope.login, $scope.password).then(function(result){
                 $scope.progressBarValue = 60;
-                authService.getProfil().then(function(result){
+                authService.getProfile().then(function(result){
                     $scope.progressBarValue = 100;
                     $scope.progressBarType = 'progress-bar-success';
                     $scope.chrono = $interval(function(){
                         toastr.success($translate.instant('LOGIN_LOG_IN_SUCCESS'));
                         $rootScope.$emit ('user:logged', result);
-                        $location.path('/');
+                        $state.transitionTo("index");
                         $scope.resetProgressBar();
                     }, localConfig.connexionLatence, 1);
                 }, function(error){

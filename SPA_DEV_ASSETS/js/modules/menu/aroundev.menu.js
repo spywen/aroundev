@@ -5,14 +5,21 @@ angular.module('aroundev.menu', [
     'aroundev.service.auth'
 ])
 .controller('menuCtrl', function($scope, authService, $rootScope, $location) {
+
+    //Catch global event : user just logged
+    $rootScope.$on ('user:logged', function (event, profile) {
+        $scope.activeConnectedMode(profile);
+    });
+
+
     //Variable which indicate if we are connected
     $scope.logged = false;
 
-    //Catch global event : user just logged
-    $rootScope.$on ('user:logged', function (event, profil) {
+    //User connected
+    $scope.activeConnectedMode = function(profile){
         $scope.logged = true;
-        $scope.username = profil.login;
-    });
+        $scope.username = profile.login;
+    };
 
     //Logout click event
     $scope.logOut = function(){

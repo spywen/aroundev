@@ -33,16 +33,17 @@
     <menu id="menu"></menu>
 
     <!-- Page views -->
-    <div class="content {{ pageClass }} view-animation" data-ng-view></div>
+    <div class="content {{ pageClass }} view-animation" data-ui-view></div>
 
 
     <!-- inject:js -->
     <script src="/app/js/lib/lodash/dist/lodash.compat.min.js"></script>
     <script src="/app/js/lib/angular/angular.min.js"></script>
     <script src="/app/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/app/js/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/app/js/lib/restangular/dist/restangular.min.js"></script>
+    <script src="/app/js/lib/jquery/dist/jquery.js"></script>
     <script src="/app/js/lib/angular-cookies/angular-cookies.min.js"></script>
-    <script src="/app/js/lib/angular-route/angular-route.min.js"></script>
     <script src="/app/js/lib/angular-translate/angular-translate.min.js"></script>
     <script src="/app/js/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
     <script src="/app/js/lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>

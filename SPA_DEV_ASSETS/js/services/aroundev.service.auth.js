@@ -32,15 +32,46 @@ angular.module('aroundev.service.auth', [
         });
     };
 
-    this.getProfil = function(){
+    this.getProfile = function(){
         return $q(function(resolve, reject){
-            Restangular.one('api/user/currentProfil').get().then(function(result){
-                user.value = {username: result.login, roles:result.roles};
+            if(_.isNull(user) || (_.isNull(user.roles))){
+                Restangular.one('api/user/currentProfil').get().then(function(result){
+                    user = {username: result.login, roles:result.roles};
+                    resolve(result);
+                },function(){
+                    user = {username: '', roles:null};
+                    reject(false);
+                });
+            }else{
+                resolve(user);
+            }
+        });
+    };
+
+    this.hasRole = function(role){
+        var that = this;
+        return $q(function(resolve, reject){
+            if(!_.isNull(user)){
+                resolve(!!_.find(user.roles, { name : role }));
+            }else{
+                that.getProfile().then(function(){
+                    resolve(!!_.find(user.roles, { name : role }));
+                },function(){
+                    reject(false);
+                });
+            }
+        });
+    };
+
+    this.isAuthenticated = function(){
+        var that = this;
+        return $q(function(resolve, reject){
+            that.hasRole('AUTHENTICATED').then(function(result){
                 resolve(result);
             },function(){
                 reject(false);
             });
-        });
+        }, this);
     };
 
 });
