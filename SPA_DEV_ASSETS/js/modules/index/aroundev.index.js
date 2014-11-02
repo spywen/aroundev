@@ -9,7 +9,9 @@ angular.module('aroundev.index', [
         url: '/',
         templateUrl: '/app/js/modules/index/view/index.html',
         controller: 'indexCtrl',
-        authenticate: false
+        authenticate: false,
+        hasRoles:[],
+        hasNotRoles:[]
     });
 })
 .controller('indexCtrl', function($scope) {

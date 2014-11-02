@@ -18,7 +18,12 @@ angular.module('aroundev', [
     defaultLanguage: '"en"',
     translateAllowed: false
 })
-.run(function(authService, $location, $rootScope, $state){
+.constant('roles', {
+    authenticated:'AUTHENTICATED',
+    admin:'ADMIN',
+    user:'USER'
+})
+.run(function(authService, $location, $rootScope, $state, roles){
     authService.getProfile().then(function(result){
         $rootScope.$broadcast('user:logged', result);
     },function(){
@@ -26,11 +31,18 @@ angular.module('aroundev', [
     });
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-        if (toState.authenticate){
-            authService.isAuthenticated().then(function(result){
+        if (!_.isEmpty(toState.hasRoles)){
+            authService.hasRoles(toState.hasRoles).then(function(result){
                 if(!result){
-                    // User isn’t authenticated
                     $state.transitionTo("login");
+                    event.preventDefault();
+                }
+            },function(){});
+        }
+        if (!_.isEmpty(toState.hasNotRoles)){
+            authService.hasRoles(toState.hasNotRoles).then(function(result){
+                if(result){
+                    $state.transitionTo("index");
                     event.preventDefault();
                 }
             },function(){});

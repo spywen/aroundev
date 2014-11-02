@@ -22,7 +22,7 @@ var gulp = require('gulp'),//GULP !!!
 
 //Location
 var indexLocation = "./../src/main/webapp/WEB-INF/index.jsp",
-    scriptsLocation = ['js/**/*.js'],
+    scriptsLocation = ['js/**/*.js', '!js/tests/**/*.js'],
     filesToCopyLocation = ['js/**/*.html', 'js/**/*.json'],
     stylesLocation = ['css/**/*.less', 'js/**/*.less'];
 //Destination

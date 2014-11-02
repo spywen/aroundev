@@ -3,12 +3,13 @@
  */
 angular.module('aroundev.service.auth', [
     'pascalprecht.translate',
-    'restangular'
+    'restangular',
+    'aroundev.service.utils'
 ])
 .config(function(RestangularProvider){
     //RestangularProvider.setBaseUrl('/api/user/');
 })
-.service('authService',function($translate, $http, $location, Restangular, $q, user, toastr){
+.service('authService',function($translate, $http, $location, Restangular, $q, user, toastr, utilsService){
 
     this.login = function(login,password){
         return $q(function(resolve, reject){
@@ -34,12 +35,16 @@ angular.module('aroundev.service.auth', [
 
     this.getProfile = function(){
         return $q(function(resolve, reject){
-            if(_.isNull(user) || (_.isNull(user.roles))){
+            if(_.isNull(user) || (_.isEmpty(user.roles))){
                 Restangular.one('api/user/currentProfil').get().then(function(result){
-                    user = {username: result.login, roles:result.roles};
+                    var rolesNames = [];
+                    _.forEach(result.roles, function(role){
+                        rolesNames.push(role.name);
+                    });
+                    user = {username: result.login, roles:rolesNames};
                     resolve(result);
                 },function(){
-                    user = {username: '', roles:null};
+                    user = {username: '', roles:[]};
                     reject(false);
                 });
             }else{
@@ -48,30 +53,19 @@ angular.module('aroundev.service.auth', [
         });
     };
 
-    this.hasRole = function(role){
+    this.hasRoles = function(roles){
         var that = this;
         return $q(function(resolve, reject){
             if(!_.isNull(user)){
-                resolve(!!_.find(user.roles, { name : role }));
+                resolve(utilsService.containMoreThanOne(user.roles, roles));
             }else{
                 that.getProfile().then(function(){
-                    resolve(!!_.find(user.roles, { name : role }));
+                    resolve(utilsService.containMoreThanOne(user.roles, roles));
                 },function(){
-                    reject(false);
+                    resolve(false);
                 });
             }
         });
-    };
-
-    this.isAuthenticated = function(){
-        var that = this;
-        return $q(function(resolve, reject){
-            that.hasRole('AUTHENTICATED').then(function(result){
-                resolve(result);
-            },function(){
-                reject(false);
-            });
-        }, this);
     };
 
 });

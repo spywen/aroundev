@@ -12,7 +12,9 @@ angular.module('aroundev.user.login', [
         url:'/login',
         templateUrl: '/app/js/modules/user/view/login.html',
         controller: 'loginCtrl',
-        authenticate: false
+        authenticate: false,
+        hasRoles:[],
+        hasNotRoles:['AUTHENTICATED']
     });
 })
 .constant('localConfig', { connexionLatence : 1000 })
