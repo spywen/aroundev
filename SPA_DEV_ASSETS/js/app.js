@@ -4,31 +4,25 @@
 angular.module('aroundev', [
     'ngAnimate',
     'ui.bootstrap',
+    'aroundev.service.auth',
     'aroundev.translate',
     'aroundev.menu',
     'aroundev.index',
-    'aroundev.user.login',
-    'aroundev.service.auth'
+    'aroundev.user.login'
 ])
 .config(function($translateProvider, $locationProvider){
     $locationProvider.html5Mode(true);//Remove the '#' on the url
 })
-.value('user', null)
 .constant('configs', {
     defaultLanguage: '"en"',
-    translateAllowed: false
+    translateAllowed: true
 })
 .constant('roles', {
     authenticated:'AUTHENTICATED',
     admin:'ADMIN',
     user:'USER'
 })
-.run(function(authService, $location, $rootScope, $state, roles){
-    authService.getProfile().then(function(result){
-        $rootScope.$broadcast('user:logged', result);
-    },function(){
-        console.log('Person not connected');
-    });
+.run(function(authService, $location, $rootScope, $state){
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
         if (!_.isEmpty(toState.hasRoles)){
@@ -48,4 +42,5 @@ angular.module('aroundev', [
             },function(){});
         }
     });
+        
 });

@@ -14,7 +14,7 @@ import java.util.Set;
  * Created by laurent on 19/07/2014.
  */
 @Entity
-@Table(name = "User", schema = "", catalog = "aroundev")
+@Table(name = "user", schema = "", catalog = "aroundev")
 public class UserAroundev {
     private int id;
     private String lastname;

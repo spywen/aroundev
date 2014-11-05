@@ -6,19 +6,21 @@ angular.module('aroundev.menu', [
 ])
 .controller('menuCtrl', function($scope, authService, $rootScope, $location) {
 
+    /** EVENTS **/
     //Catch global event : user just logged
     $rootScope.$on ('user:logged', function (event, profile) {
         $scope.activeConnectedMode(profile);
     });
 
-
+    /** INIT variables **/
     //Variable which indicate if we are connected
     $scope.logged = false;
 
-    //User connected
+    /** Methods **/
+    //user connected
     $scope.activeConnectedMode = function(profile){
         $scope.logged = true;
-        $scope.username = profile.login;
+        $scope.username = profile.username;
     };
 
     //Logout click event
@@ -31,12 +33,19 @@ angular.module('aroundev.menu', [
         return new RegExp(viewLocation).test($location.path());
     };
 })
-.directive('menu',function(){
+.directive('menu',function(authService){
     return {
         scope: true,
         restrict:'E',//<=> <menu></menu> (E as Element) and are not allowed : class='menu' (C as class) or <div menu>... (A as attribute)
         controller:'menuCtrl',
-        templateUrl:'/app/js/modules/menu/view/menu.html'
+        replace:true,//IMPORTANT : solution found for modified dom by link method ->
+        templateUrl:'/app/js/modules/menu/view/menu.html',
+        link:function(scope, element, attrs){
+            var user = authService.getUser();
+            if(user){
+                scope.activeConnectedMode(user);
+            }
+        }
         //compile : function ..., replace : true or false
     };
 });

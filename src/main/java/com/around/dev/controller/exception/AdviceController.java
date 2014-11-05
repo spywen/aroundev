@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @ControllerAdvice
 public class AdviceController {
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(UserNotFoundException.class)
     @ResponseBody
-    public ExceptionInfo AuthenticateUserException(UserNotFoundException ex) {
+    public ExceptionInfo UserNotFoundException(UserNotFoundException ex) {
         return new ExceptionInfo(ex);
     }
 

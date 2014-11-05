@@ -32,26 +32,13 @@ angular.module('aroundev.user.login', [
         $scope.chrono = $interval(function(){
             authService.login($scope.login, $scope.password).then(function(result){
                 $scope.progressBarValue = 60;
-                authService.getProfile().then(function(result){
-                    $scope.progressBarValue = 100;
-                    $scope.progressBarType = 'progress-bar-success';
-                    $scope.chrono = $interval(function(){
-                        toastr.success($translate.instant('LOGIN_LOG_IN_SUCCESS'));
-                        $rootScope.$emit ('user:logged', result);
-                        $state.transitionTo("index");
-                        $scope.resetProgressBar();
-                    }, localConfig.connexionLatence, 1);
+                authService.getProfile().then(function(profile){
+                    $scope.loginSuccess(profile);
                 }, function(error){
-                    toastr.error($translate.instant('COMMON_ERROR'));
-                    $scope.progressBarType = 'progress-bar-danger';
+                    $scope.loginFailed();
                 });
             }, function(error){
-                    toastr.error($translate.instant('LOGIN_LOG_IN_FAILED'));
-                    $scope.progressBarValue = 100;
-                    $scope.progressBarType = 'progress-bar-danger';
-                    $scope.chrono = $interval(function(){
-                        return $scope.resetProgressBar();
-                    }, 4000, 1);
+                $scope.loginFailed();
             });
         }, localConfig.connexionLatence, 1);
     };
@@ -65,6 +52,26 @@ angular.module('aroundev.user.login', [
     $scope.loginCtrlFieldsUpdated = function(){
         $interval.cancel($scope.chrono);
         $scope.resetProgressBar();
+    };
+
+    $scope.loginFailed = function(){
+        toastr.error($translate.instant('LOGIN_LOG_IN_FAILED'));
+        $scope.progressBarValue = 100;
+        $scope.progressBarType = 'progress-bar-danger';
+        $scope.chrono = $interval(function(){
+            return $scope.resetProgressBar();
+        }, 4000, 1);
+    };
+
+    $scope.loginSuccess = function(profile){
+        $scope.progressBarValue = 100;
+        $scope.progressBarType = 'progress-bar-success';
+        $scope.chrono = $interval(function(){
+            toastr.success($translate.instant('LOGIN_LOG_IN_SUCCESS'));
+            $rootScope.$emit ('user:logged', profile);
+            $state.transitionTo("index");
+            $scope.resetProgressBar();
+        }, localConfig.connexionLatence, 1);
     };
 });
 

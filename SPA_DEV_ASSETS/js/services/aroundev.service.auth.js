@@ -9,7 +9,7 @@ angular.module('aroundev.service.auth', [
 .config(function(RestangularProvider){
     //RestangularProvider.setBaseUrl('/api/user/');
 })
-.service('authService',function($translate, $http, $location, Restangular, $q, user, toastr, utilsService){
+.service('authService',function($translate, $http, $location, Restangular, $q, toastr, utilsService){
 
     this.login = function(login,password){
         return $q(function(resolve, reject){
@@ -35,37 +35,44 @@ angular.module('aroundev.service.auth', [
 
     this.getProfile = function(){
         return $q(function(resolve, reject){
-            if(_.isNull(user) || (_.isEmpty(user.roles))){
+            if(_.isEmpty(window.user.roles)){
                 Restangular.one('api/user/currentProfil').get().then(function(result){
-                    var rolesNames = [];
-                    _.forEach(result.roles, function(role){
-                        rolesNames.push(role.name);
-                    });
-                    user = {username: result.login, roles:rolesNames};
-                    resolve(result);
+                    if(!_.isUndefined(result.type) && result.type == 'NotConnected'){
+                        reject(result);
+                    }else{
+                        var rolesNames = [];
+                        _.forEach(result.roles, function(role){
+                            rolesNames.push(role.name);
+                        });
+                        window.user = {username: result.login, roles:rolesNames};
+                        resolve(window.user);
+                    }
                 },function(){
-                    user = {username: '', roles:[]};
                     reject(false);
                 });
             }else{
-                resolve(user);
+                resolve(window.user);
             }
         });
     };
 
     this.hasRoles = function(roles){
-        var that = this;
         return $q(function(resolve, reject){
-            if(!_.isNull(user)){
+            if(!_.isEmpty(window.user.roles)){
                 resolve(utilsService.containMoreThanOne(user.roles, roles));
             }else{
-                that.getProfile().then(function(){
-                    resolve(utilsService.containMoreThanOne(user.roles, roles));
-                },function(){
-                    resolve(false);
-                });
+                resolve(false);
             }
         });
+    };
+
+    this.getUser = function(){
+        if(!_.isEmpty(window.user.roles)){
+            return window.user;
+        }else{
+            return false;
+        }
+
     };
 
 });

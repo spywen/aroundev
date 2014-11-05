@@ -42,7 +42,6 @@
     <script src="/app/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/app/js/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/app/js/lib/restangular/dist/restangular.min.js"></script>
-    <script src="/app/js/lib/jquery/dist/jquery.js"></script>
     <script src="/app/js/lib/angular-cookies/angular-cookies.min.js"></script>
     <script src="/app/js/lib/angular-translate/angular-translate.min.js"></script>
     <script src="/app/js/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
@@ -50,8 +49,12 @@
     <script src="/app/js/lib/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
     <script src="/app/js/lib/angular-animate/angular-animate.min.js"></script>
     <script src="/app/js/lib/angular-toastr/dist/angular-toastr.min.js"></script>
+    <script src="/app/js/lib/angular-mocks/angular-mocks.js"></script>
     <!-- endinject -->
 
+    <script>
+        window.user = ${userConnected};
+    </script>
     <script src="/app/js/all.min.js"></script>
 </body>
 </html>

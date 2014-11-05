@@ -7,7 +7,6 @@ import com.around.dev.exception.User.RightException;
 import com.around.dev.exception.User.UserNotFoundException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
 /**
  * Created by laurent on 27/07/2014.
  */
-@Controller
+@RestController
 @RequestMapping("/api/planningpoker")
 public class PlanningPokerControllerApi {
     private static final Logger logger = Logger.getLogger(PlanningPokerControllerApi.class);
