@@ -89,3 +89,6 @@ body {
 .loginPageClass form.form-login .divDecalRememberMe {
   margin-left: 20px;
 }
+#signin .separator {
+  padding-left: 10px;
+}

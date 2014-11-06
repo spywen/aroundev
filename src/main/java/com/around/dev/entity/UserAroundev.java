@@ -35,8 +35,8 @@ public class UserAroundev {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public UserAroundev setId(int id) {
+        this.id = id;return this;
     }
 
     @Basic
@@ -45,8 +45,8 @@ public class UserAroundev {
         return lastname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public UserAroundev setLastname(String lastname) {
+        this.lastname = lastname;return this;
     }
 
     @Basic
@@ -55,8 +55,8 @@ public class UserAroundev {
         return firstname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public UserAroundev setFirstname(String firstname) {
+        this.firstname = firstname;return this;
     }
 
     @Basic
@@ -65,8 +65,8 @@ public class UserAroundev {
         return isfemale;
     }
 
-    public void setIsfemale(Boolean isfemale) {
-        this.isfemale = isfemale;
+    public UserAroundev setIsfemale(Boolean isfemale) {
+        this.isfemale = isfemale;return this;
     }
 
     @Basic
@@ -75,8 +75,8 @@ public class UserAroundev {
         return login;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public UserAroundev setLogin(String login) {
+        this.login = login;return this;
     }
 
     @Basic
@@ -85,8 +85,8 @@ public class UserAroundev {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public UserAroundev setEmail(String email) {
+        this.email = email;return this;
     }
 
     @Basic
@@ -95,8 +95,8 @@ public class UserAroundev {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public UserAroundev setPassword(String password) {
+        this.password = password; return this;
     }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -107,8 +107,8 @@ public class UserAroundev {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public UserAroundev setRoles(Set<Role> roles) {
+        this.roles = roles; return this;
     }
 
     @Transient
@@ -128,15 +128,15 @@ public class UserAroundev {
         return registerdate;
     }
 
-    public void setRegisterdate(Timestamp registerdate) {
-        this.registerdate = registerdate;
+    public UserAroundev setRegisterdate(Timestamp registerdate) {
+        this.registerdate = registerdate; return this;
     }
 
     @Basic
     @Column(name = "isactive", nullable = false, insertable = true, updatable = true)
     public boolean getIsactive() { return isactive; }
 
-    public void setIsactive(boolean isactive) { this.isactive = isactive; }
+    public UserAroundev setIsactive(boolean isactive) { this.isactive = isactive; return this; }
 
     @Override
     public boolean equals(Object o) {

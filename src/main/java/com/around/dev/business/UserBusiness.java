@@ -3,15 +3,18 @@ package com.around.dev.business;
 import com.around.dev.entity.Role;
 import com.around.dev.entity.UserAroundev;
 import com.around.dev.exception.User.UserNotFoundException;
+import com.around.dev.repository.RoleRepository;
 import com.around.dev.repository.UserRepository;
+import com.around.dev.security.UserSubscriptionInformations;
 import com.around.dev.utils.UserConnectedProfile;
+import com.around.dev.utils.enums.EnumRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.*;
 
 /**
  * Created by laurent on 19/07/2014.
@@ -20,8 +23,12 @@ import java.util.List;
 public class UserBusiness {
     @Autowired
     public UserRepository userRepository;
+
+    @Autowired
+    public RoleRepository roleRepository;
+
     /**
-     * Get the connected user profile
+     * Get complete the connected user profile
      * @return
      * @throws com.around.dev.exception.User.UserNotFoundException
      */
@@ -40,6 +47,10 @@ public class UserBusiness {
         throw new UserNotFoundException("NotConnected","user not connected");
     }
 
+    /**
+     * Get partial user profile : Username (login) and roles
+     * @return
+     */
     public UserConnectedProfile getUserConnectedProfile(){
         List<String> roles = new ArrayList<String>();
         try{
@@ -53,5 +64,27 @@ public class UserBusiness {
         }catch (Exception e){
             return new UserConnectedProfile("",new ArrayList<String>());
         }
+    }
+
+    /**
+     * Sign in method
+     * @return
+     */
+    public int signIn(UserSubscriptionInformations newUser){
+        Role userRole = roleRepository.findByName(EnumRole.USER);
+
+        UserAroundev user = new UserAroundev()
+                .setLogin(newUser.getLogin())
+                .setEmail(newUser.getEmail())
+                .setFirstname(newUser.getFirstname())
+                .setLastname(newUser.getLastname())
+                .setIsfemale(newUser.getIsfemale())
+                .setPassword(newUser.getPassword())
+                .setIsactive(true)
+                .setRegisterdate(new Timestamp(new Date().getTime()))
+                .setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+
+        user = userRepository.saveAndFlush(user);
+        return user.getId();
     }
 }

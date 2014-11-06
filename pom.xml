@@ -22,6 +22,7 @@
         <jacksonCore.version>2.4.1.1</jacksonCore.version>
         <jacksonAnnotation.version>2.4.1</jacksonAnnotation.version>
         <jstl.version>1.2</jstl.version>
+        <spring.social>1.1.0.RELEASE</spring.social>
     </properties>
 
     <dependencies>
@@ -131,6 +132,11 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.0.1.Final</version>
+        </dependency>
 
         <!-- BoneCP : "BoneCP is a fast, free, open-source, Java database connection pool (JDBC Pool) library" -->
         <dependency>
@@ -144,6 +150,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysqldriver.version}</version>
+        </dependency>
+
+        <!-- validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
         </dependency>
 
         <!-- Jackson : JSON api -->
@@ -195,6 +208,23 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.9.5</version>
+        </dependency>
+
+        <!-- Spring social -->
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-core</artifactId>
+            <version>${spring.social}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-web</artifactId>
+            <version>${spring.social}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-facebook</artifactId>
+            <version>${spring.social}</version>
         </dependency>
     </dependencies>
 

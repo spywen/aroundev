@@ -8,14 +8,10 @@ angular.module('aroundev', [
     'aroundev.translate',
     'aroundev.menu',
     'aroundev.index',
-    'aroundev.user.login'
+    'aroundev.user'
 ])
 .config(function($translateProvider, $locationProvider){
     $locationProvider.html5Mode(true);//Remove the '#' on the url
-})
-.constant('configs', {
-    defaultLanguage: '"en"',
-    translateAllowed: true
 })
 .constant('roles', {
     authenticated:'AUTHENTICATED',
@@ -42,5 +38,5 @@ angular.module('aroundev', [
             },function(){});
         }
     });
-        
+
 });

@@ -24,6 +24,15 @@
     "LOGIN_LOG_IN_ACTION" : "Log In",
     "LOGIN_LOG_IN_REMEMBER_ME" : "Remember me",
 
+    "MODULE_TITLE_SIGNIN" : "Sign In",
+    "SIGNIN_FIELD_PLACEHOLDER_LOGIN" : "Login",
+    "SIGNIN_FIELD_PLACEHOLDER_EMAIL" : "Email",
+    "SIGNIN_FIELD_PLACEHOLDER_FIRSTNAME" : "Firstname",
+    "SIGNIN_FIELD_PLACEHOLDER_LASTNAME" : "Lastname",
+    "SIGNIN_FIELD_PLACEHOLDER_PASSWORD" : "Password",
+    "SIGNIN_FIELD_PLACEHOLDER_PASSWORD_CONFIRMATION" : "Password confirmation",
+
+
     "APP_PLANNING_POKER" : "Planning poker",
 
     "COMMON_ERROR" : "Unfortunately, an error occured. Please contact the Aroundev.com support team if the problem persist.",

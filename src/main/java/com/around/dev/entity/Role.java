@@ -19,8 +19,8 @@ public class Role {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Role setId(int id) {
+        this.id = id; return this;
     }
 
     @Basic
@@ -29,8 +29,8 @@ public class Role {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Role setName(String name) {
+        this.name = name; return this;
     }
 
 

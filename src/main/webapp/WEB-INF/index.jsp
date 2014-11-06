@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<html data-ng-app="aroundev">
+<html data-ng-app="configs">
 <head>
     <title>Aroundev</title>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/app/css/all.min.css">
     <base href="/">
 </head>
-<body data-ng-cloak>
+<body data-ng-cloak data-ng-app="aroundev">
 
     <!--Menu directive-->
     <menu id="menu"></menu>
@@ -40,6 +40,7 @@
     <script src="/app/js/lib/lodash/dist/lodash.compat.min.js"></script>
     <script src="/app/js/lib/angular/angular.min.js"></script>
     <script src="/app/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/app/js/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/app/js/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/app/js/lib/restangular/dist/restangular.min.js"></script>
     <script src="/app/js/lib/angular-cookies/angular-cookies.min.js"></script>
@@ -54,6 +55,13 @@
 
     <script>
         window.user = ${userConnected};
+        angular.module('configs',[
+            'aroundev'
+        ])
+        .constant('configs', {
+            defaultLanguage: '${defaultLanguage}',
+            translateAllowed: ${translateAllowed}
+        });
     </script>
     <script src="/app/js/all.min.js"></script>
 </body>

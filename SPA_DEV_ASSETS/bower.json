@@ -65,8 +65,14 @@
     },
     "angular-bootstrap": {
       "main": {
-        "dev": "ui-bootstrap.js",
-        "prod": "ui-bootstrap.min.js"
+        "dev": [
+            "ui-bootstrap.js",
+            "ui-bootstrap-tpls.js"
+        ],
+        "prod": [
+            "ui-bootstrap.min.js",
+            "ui-bootstrap-tpls.min.js"
+        ]
       }
     },
     "angular-ui-router": {
