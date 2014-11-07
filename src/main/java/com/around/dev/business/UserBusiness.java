@@ -8,7 +8,9 @@ import com.around.dev.repository.UserRepository;
 import com.around.dev.security.UserSubscriptionInformations;
 import com.around.dev.utils.UserConnectedProfile;
 import com.around.dev.utils.enums.EnumRole;
+import com.around.dev.utils.facades.EmailFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
@@ -68,10 +70,12 @@ public class UserBusiness {
 
     /**
      * Sign in method
+     * @param newUser
      * @return
      */
     public int signIn(UserSubscriptionInformations newUser){
         Role userRole = roleRepository.findByName(EnumRole.USER);
+        ShaPasswordEncoder encoder = new ShaPasswordEncoder(256);
 
         UserAroundev user = new UserAroundev()
                 .setLogin(newUser.getLogin())
@@ -79,12 +83,52 @@ public class UserBusiness {
                 .setFirstname(newUser.getFirstname())
                 .setLastname(newUser.getLastname())
                 .setIsfemale(newUser.getIsfemale())
-                .setPassword(newUser.getPassword())
+                .setPassword(encoder.encodePassword(newUser.getPassword(), null))
                 .setIsactive(true)
                 .setRegisterdate(new Timestamp(new Date().getTime()))
-                .setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-
+                .setSupinfoid(newUser.getSupinfoId());
         user = userRepository.saveAndFlush(user);
+
+        //Attribute role
+        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        userRepository.save(user);
+
         return user.getId();
+    }
+
+    /**
+     * Define if the a supinfo id is already registered
+     * @param supinfoId
+     * @return
+     */
+    public Boolean existSupinfoId(int supinfoId){
+        if(userRepository.countBySupinfoid(supinfoId) == 0){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Define if the an email is already registered
+     * @param email
+     * @return
+     */
+    public Boolean existEmail(EmailFacade email){
+        if(userRepository.countByEmail(email.getEmail()) == 0){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Define if the a login is already registered
+     * @param login
+     * @return
+     */
+    public Boolean existLogin(String login){
+        if(userRepository.countByLogin(login) == 0){
+            return false;
+        }
+        return true;
     }
 }

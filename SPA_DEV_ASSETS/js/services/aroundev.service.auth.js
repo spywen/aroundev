@@ -75,4 +75,47 @@ angular.module('aroundev.service.auth', [
 
     };
 
+    this.signIn = function(newUser){
+        return $q(function(resolve,reject){
+            Restangular.one('api').post('user',newUser).then(function(result){
+                resolve(result);
+            },function(){
+                reject(false);
+            });
+        });
+    };
+
+    this.loginExist = function(login){
+        return $q(function(resolve, reject){
+            Restangular.one('api/user/exist/login').one(login).get().then(function(result){
+                resolve(result);
+            },function(){
+                reject(false);
+            });
+        });
+    };
+
+    this.emailExist = function(email){
+        return $q(function(resolve, reject){
+            var emailObject = {
+                'email':email
+            };
+            Restangular.one('api/user/exist').post('email', emailObject).then(function(result){
+                resolve(result);
+            },function(){
+                reject(false);
+            });
+        });
+    };
+
+    this.supinfoIdExist = function(supinfoId){
+        return $q(function(resolve, reject){
+            Restangular.one('api/user/exist/supinfoId').one(supinfoId).get().then(function(result){
+                resolve(result);
+            },function(){
+                reject(false);
+            });
+        });
+    };
+
 });

@@ -26,6 +26,8 @@ public class UserAroundev {
     private Timestamp registerdate;
     private Boolean isactive;
     private Set<Role> roles;
+    //Supinfo
+    private int supinfoid;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "userId")
@@ -37,6 +39,16 @@ public class UserAroundev {
 
     public UserAroundev setId(int id) {
         this.id = id;return this;
+    }
+
+    @Basic
+    @Column(name = "supinfoid", nullable = true, insertable = true, updatable = true)
+    public int getSupinfoid() {
+        return supinfoid;
+    }
+
+    public UserAroundev setSupinfoid(int supinfoid) {
+        this.supinfoid = supinfoid;return this;
     }
 
     @Basic

@@ -25,17 +25,22 @@
     "LOGIN_LOG_IN_REMEMBER_ME" : "Remember me",
 
     "MODULE_TITLE_SIGNIN" : "Sign In",
+    "SIGNIN_FIELD_PLACEHOLDER_SUPINFO_ID" : "Supinfo ID",
+    "SIGNIN_ERROR_SUPINFO_ID_EXIST" : "Supinfo ID already used",
     "SIGNIN_FIELD_PLACEHOLDER_LOGIN" : "Login",
+    "SIGNIN_ERROR_LOGIN_EXIST" : "Login already used",
     "SIGNIN_FIELD_PLACEHOLDER_EMAIL" : "Email",
+    "SIGNIN_ERROR_EMAIL_EXIST" : "Email already used",
     "SIGNIN_FIELD_PLACEHOLDER_FIRSTNAME" : "Firstname",
     "SIGNIN_FIELD_PLACEHOLDER_LASTNAME" : "Lastname",
     "SIGNIN_FIELD_PLACEHOLDER_PASSWORD" : "Password",
     "SIGNIN_FIELD_PLACEHOLDER_PASSWORD_CONFIRMATION" : "Password confirmation",
-
+    "SIGNIN_ERROR_REGISTRATION" : "An error occured during registration. Please contact the Aroundev.com support team if the problem persists.",
+    "SIGNIN_SUCCESS_REGISTRATION" : "Successfully registration to Aroundev. You are now able to connect.",
 
     "APP_PLANNING_POKER" : "Planning poker",
 
-    "COMMON_ERROR" : "Unfortunately, an error occured. Please contact the Aroundev.com support team if the problem persist.",
+    "COMMON_ERROR" : "Unfortunately, an error occured. Please contact the Aroundev.com support team if the problem persists.",
 
     "VIEW_NOT_CONNECTED" : "You are not connected. Please log in before trying access to this page."
 }

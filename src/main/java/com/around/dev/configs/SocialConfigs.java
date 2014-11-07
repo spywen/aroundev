@@ -1,5 +1,6 @@
 package com.around.dev.configs;
 
+/*
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -9,9 +10,7 @@ import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 
 import javax.inject.Inject;
 
-/**
- * Created by laurent on 05/11/14.
- */
+
 @Configuration
 public class SocialConfigs {
 
@@ -32,3 +31,4 @@ public class SocialConfigs {
         return registry;
     }
 }
+*/

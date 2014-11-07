@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.inject.Inject;
+import javax.annotation.Resource;
 
 /**
  * Created by laurent on 06/07/2014.
@@ -28,7 +28,7 @@ public class GController {
     @Autowired
     public UserBusiness userBusiness;
 
-    @Inject
+    @Resource
     Environment environment;
 
     @RequestMapping(method = RequestMethod.GET, value = "*")

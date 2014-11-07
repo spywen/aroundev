@@ -3,11 +3,39 @@
         <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
             <h1 class="text-center login-title">{{'MODULE_TITLE_SIGNIN' | translate}}</h1>
             <form class="form-horizontal" role="form" name="signinForm" novalidate>
-                <div class="form-group" data-ng-class="{'has-error': signinForm.login.$invalid, 'has-success': signinForm.login.$valid}">
+                <!-- Supinfo Id -->
+                <div class="form-group" data-ng-class="{
+                    'has-error': (signinForm.supinfoId.$invalid && !signinForm.supinfoId.$pending),
+                    'has-success': (signinForm.supinfoId.$valid && !signinForm.supinfoId.$pending)
+                }">
                     <div class="input-group">
                         <div class="input-group-addon">
-                            <i class="fa fa-user" data-ng-show="signinForm.login.$valid"></i>
-                            <i class="fa fa-remove" data-ng-show="signinForm.login.$invalid"></i>
+                            <i class="fa fa-user" data-ng-show="signinForm.supinfoId.$valid"></i>
+                            <i class="fa fa-cog" data-ng-show="signinForm.supinfoId.$pending"></i>
+                            <i class="fa fa-remove" data-ng-show="signinForm.supinfoId.$invalid"></i>
+                        </div>
+                        <input name="supinfoId"
+                               autofocus="autofocus"
+                               class="form-control"
+                               type="text"
+                               placeholder="{{'SIGNIN_FIELD_PLACEHOLDER_SUPINFO_ID' | translate}}"
+                               required
+                               data-supinfo-id-validation
+                               data-ng-maxlength="10"
+                               data-ng-minlength="5"
+                               data-ng-model="newUser.supinfoId"
+                               data-ng-model-options="{ updateOn: 'blur' }"/>
+                    </div>
+                </div>
+                <div class="form-group" data-ng-class="{
+                    'has-error': (signinForm.login.$invalid && !signinForm.login.$pending),
+                    'has-success': (signinForm.login.$valid && !signinForm.login.$pending)
+                }">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user" data-ng-show="signinForm.login.$valid && !signinForm.login.$pending"></i>
+                            <i class="fa fa-cog" data-ng-show="signinForm.login.$pending"></i>
+                            <i class="fa fa-remove" data-ng-show="signinForm.login.$invalid && !signinForm.login.$pending"></i>
                         </div>
                         <input name="login"
                                autofocus="autofocus"
@@ -15,15 +43,21 @@
                                type="text"
                                placeholder="{{'SIGNIN_FIELD_PLACEHOLDER_LOGIN' | translate}}"
                                required
+                               data-login-validation
                                data-ng-maxlength="20"
                                data-ng-minlength="4"
-                               data-ng-model="newUser.login"/>
+                               data-ng-model="newUser.login"
+                               data-ng-model-options="{ updateOn: 'blur' }"/>
                     </div>
                 </div>
-                <div class="form-group" data-ng-class="{'has-error': signinForm.email.$invalid, 'has-success': signinForm.email.$valid}">
+                <div class="form-group" data-ng-class="{
+                    'has-error': (signinForm.email.$invalid && !signinForm.email.$pending),
+                    'has-success': (signinForm.email.$valid && !signinForm.email.$pending)
+                }">
                     <div class="input-group">
                         <div class="input-group-addon">
                             <i class="fa fa-at" data-ng-show="signinForm.email.$valid"></i>
+                            <i class="fa fa-cog" data-ng-show="signinForm.email.$pending"></i>
                             <i class="fa fa-remove" data-ng-show="signinForm.email.$invalid"></i>
                         </div>
                         <input name="email"
@@ -31,8 +65,10 @@
                                type="email"
                                placeholder="{{'SIGNIN_FIELD_PLACEHOLDER_EMAIL' | translate}}"
                                required
+                               data-email-validation
                                data-ng-maxlength="100"
-                               data-ng-model="newUser.email">
+                               data-ng-model="newUser.email"
+                               data-ng-model-options="{ updateOn: 'blur' }">
                     </div>
                 </div>
                 <div class="form-group" data-ng-class="{'has-error': signinForm.firstname.$invalid, 'has-success': signinForm.firstname.$valid}">

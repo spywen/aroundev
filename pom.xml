@@ -210,7 +210,7 @@
             <version>1.9.5</version>
         </dependency>
 
-        <!-- Spring social -->
+        <!-- Spring social
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-core</artifactId>
@@ -226,6 +226,7 @@
             <artifactId>spring-social-facebook</artifactId>
             <version>${spring.social}</version>
         </dependency>
+        -->
     </dependencies>
 
     <build>

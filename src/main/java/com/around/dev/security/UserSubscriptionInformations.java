@@ -23,6 +23,8 @@ public class UserSubscriptionInformations {
     @NotEmpty @Size(min=5, max=30)
     private String password;
 
+    private int supinfoId;
+
     public String getPassword() {
         return password;
     }
@@ -70,5 +72,13 @@ public class UserSubscriptionInformations {
 
     public UserSubscriptionInformations setEmail(String email) {
         this.email = email; return this;
+    }
+
+    public int getSupinfoId() {
+        return supinfoId;
+    }
+
+    public void setSupinfoId(int supinfoId) {
+        this.supinfoId = supinfoId;
     }
 }
