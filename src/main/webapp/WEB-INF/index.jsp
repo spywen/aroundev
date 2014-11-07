@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/app/js/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/app/js/lib/angular-toastr/dist/angular-toastr.min.css">
     <link rel="stylesheet" href="/app/js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/js/lib/ladda/dist/ladda-themeless.min.css">
     <!-- endinject -->
 
     <!-- flatly boostrap theme
@@ -43,6 +44,7 @@
     <script src="/app/js/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/app/js/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/app/js/lib/restangular/dist/restangular.min.js"></script>
+    <script src="/app/js/lib/jquery/dist/jquery.js"></script>
     <script src="/app/js/lib/angular-cookies/angular-cookies.min.js"></script>
     <script src="/app/js/lib/angular-translate/angular-translate.min.js"></script>
     <script src="/app/js/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
@@ -51,6 +53,10 @@
     <script src="/app/js/lib/angular-animate/angular-animate.min.js"></script>
     <script src="/app/js/lib/angular-toastr/dist/angular-toastr.min.js"></script>
     <script src="/app/js/lib/angular-mocks/angular-mocks.js"></script>
+    <script src="/app/js/lib/spin.js/spin.js"></script>
+    <script src="/app/js/lib/ladda/dist/ladda.min.js"></script>
+    <script src="/app/js/lib/ladda/dist/spin.min.js"></script>
+    <script src="/app/js/lib/angular-ladda/dist/angular-ladda.min.js"></script>
     <!-- endinject -->
 
     <script>

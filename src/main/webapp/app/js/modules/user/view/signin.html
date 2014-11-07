@@ -21,6 +21,7 @@
                                placeholder="{{'SIGNIN_FIELD_PLACEHOLDER_SUPINFO_ID' | translate}}"
                                required
                                data-supinfo-id-validation
+                               data-integer-validation
                                data-ng-maxlength="10"
                                data-ng-minlength="5"
                                data-ng-model="newUser.supinfoId"
@@ -150,7 +151,9 @@
                 <button type="submit"
                         class="btn btn-default btn-lg btn-block"
                         data-ng-click="signIn(newUser)"
-                        data-ng-disabled="signinForm.$invalid">
+                        data-ladda="signInLoading"
+                        data-style="expand-right"
+                        data-spinner-color="#333">
                     {{'MODULE_TITLE_SIGNIN' | translate}}
                 </button>
             </form>

@@ -21,7 +21,10 @@
     "font-awesome": "~4.2.0",
     "angular-animate": "~1.3.0",
     "angular-toastr": "0.5.1",
-    "angular-mocks": "~1.3.1"
+    "angular-mocks": "~1.3.1",
+    "angular-ladda": "~0.1.7",
+    "ladda": "~0.9.4",
+    "spin.js": "~2.0.1"
   },
   "overrides": {
     "angular": {
@@ -45,6 +48,18 @@
         ]
       }
     },
+    "angular-ladda": {
+      "main": [
+        "dist/angular-ladda.min.js"
+      ]
+    },
+    "ladda": {
+      "main": [
+        "dist/ladda.min.js",
+        "dist/spin.min.js",
+        "dist/ladda-themeless.min.css"
+      ]
+    },
     "bootstrap": {
       "main": {
         "dev": [
@@ -66,12 +81,12 @@
     "angular-bootstrap": {
       "main": {
         "dev": [
-            "ui-bootstrap.js",
-            "ui-bootstrap-tpls.js"
+          "ui-bootstrap.js",
+          "ui-bootstrap-tpls.js"
         ],
         "prod": [
-            "ui-bootstrap.min.js",
-            "ui-bootstrap-tpls.min.js"
+          "ui-bootstrap.min.js",
+          "ui-bootstrap-tpls.min.js"
         ]
       }
     },

@@ -5,7 +5,8 @@ angular.module('aroundev.user.signin',[
     'aroundev.service.auth',
     'pascalprecht.translate',
     'toastr',
-    'ui.router'
+    'ui.router',
+    'angular-ladda'
 ])
 .config(function($stateProvider){
     $stateProvider.state('signin', {
@@ -20,14 +21,22 @@ angular.module('aroundev.user.signin',[
 .controller('signinCtrl',function($scope, authService, toastr, $translate, $state){
 
     $scope.signIn = function(user) {
-        var newUser = angular.copy(user);
-        authService.signIn(newUser).then(function(result){
-            toastr.success($translate.instant('SIGNIN_SUCCESS_REGISTRATION'));
-            $state.transitionTo("login");
-        },function(error){
-            toastr.error($translate.instant('SIGNIN_ERROR_REGISTRATION'));
-            $state.transitionTo("index");
-        });
+        if($scope.signinForm.$invalid){
+            toastr.error($translate.instant('SIGNIN_ERROR_NOT_FULL_FILLED'));
+        }else{
+            $scope.signInLoading = true;
+            var newUser = angular.copy(user);
+            authService.signIn(newUser).then(function(result){
+                toastr.success($translate.instant('SIGNIN_SUCCESS_REGISTRATION'));
+                $scope.signInLoading = false;
+                $state.transitionTo("login");
+            },function(error){
+                toastr.error($translate.instant('SIGNIN_ERROR_REGISTRATION'));
+                $scope.signInLoading = false;
+                $state.transitionTo("index");
+            });
+        }
+
     };
 
 }).directive('passwordConfirmationValidation', function() {
@@ -78,9 +87,26 @@ angular.module('aroundev.user.signin',[
                     }
                     return true;
                 },function(){
-                    toastr.error($translate.instant('COMMON_ERROR'));
                     $q.reject('error');
+                    toastr.error($translate.instant('COMMON_ERROR'));
                 });
+            };
+        }
+    };
+}).directive('integerValidation', function(authService, toastr, $translate, $q) {
+    return {
+        require: 'ngModel',
+        link: function(scope, elm, attrs, ctrl) {
+
+            var INTEGER_REGEXP = /^\-?\d+$/;
+            ctrl.$validators.integerValidation = function(modelValue, viewValue) {
+                if (ctrl.$isEmpty(modelValue)) {
+                    return true;
+                }
+                if (INTEGER_REGEXP.test(viewValue)) {
+                    return true;
+                }
+                return false;
             };
         }
     };
