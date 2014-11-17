@@ -6,20 +6,20 @@ import java.util.List;
  * Created by laurent on 03/11/14.
  */
 public class UserConnectedProfile {
-    private String username;
+    private String login;
     private List<String> roles;
 
-    public UserConnectedProfile(String username, List<String> roles){
-        this.username = username;
+    public UserConnectedProfile(String login, List<String> roles){
+        this.login = login;
         this.roles = roles;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public List<String> getRoles() {

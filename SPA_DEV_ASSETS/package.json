@@ -23,7 +23,10 @@
     "karma": "~0.12.24",
     "karma-chrome-launcher": "~0.1.5",
     "karma-jasmine": "~0.2.3",
-    "karma-cli": "0.0.4"
+    "karma-cli": "0.0.4",
+    "gulp-angular-htmlify": "~1.0.0",
+    "gulp-image": "~0.5.1",
+    "gulp-clean": "~0.3.1"
   },
   "dependencies": {}
 }

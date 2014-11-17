@@ -1,9 +1,9 @@
 package com.around.dev.controller.api;
 
 import com.around.dev.business.UserBusiness;
-import com.around.dev.entity.UserAroundev;
 import com.around.dev.exception.User.UserNotFoundException;
 import com.around.dev.security.UserSubscriptionInformations;
+import com.around.dev.utils.UserConnectedProfile;
 import com.around.dev.utils.facades.EmailFacade;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,8 @@ public class UserControllerApi {
     UserBusiness userBusiness;
 
     @RequestMapping(value = "/currentProfil",method = RequestMethod.GET)
-    public UserAroundev getUserProfil() throws UserNotFoundException {
-        return userBusiness.getConnectedUser();
+    public UserConnectedProfile getUserProfil() throws UserNotFoundException {
+        return userBusiness.getUserConnectedProfile();
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

@@ -15,6 +15,11 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left" >
+                    <li data-ng-class="{ active: isActive('/events') }">
+                        <a href="/events">{{ 'APP_EVENTS' | translate }}</a>
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right" >
                     <!--<li><a href="#">{{ MENU_SUPPORT | translate }}</a></li>-->
                     <li class="dropdown" data-ng-controller="translateCtrl" data-ng-show="translateAllowed">

@@ -8,7 +8,8 @@ angular.module('aroundev', [
     'aroundev.translate',
     'aroundev.menu',
     'aroundev.index',
-    'aroundev.user'
+    'aroundev.user',
+    'aroundev.events'
 ])
 .config(function($translateProvider, $locationProvider){
     $locationProvider.html5Mode(true);//Remove the '#' on the url

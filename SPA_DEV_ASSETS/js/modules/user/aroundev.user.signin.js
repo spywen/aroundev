@@ -18,10 +18,14 @@ angular.module('aroundev.user.signin',[
         hasNotRoles:["AUTHENTICATED"]
     });
 })
-.controller('signinCtrl',function($scope, authService, toastr, $translate, $state){
+.controller('signinCtrl',function($scope, authService, toastr, $translate, $state, $interval){
 
     $scope.signIn = function(user) {
         if($scope.signinForm.$invalid){
+            $scope.onSignInErrorNotFilled = "animated flash";
+            $interval(function(){
+                $scope.onSignInErrorNotFilled = "";
+            }, 1000, 1);
             toastr.error($translate.instant('SIGNIN_ERROR_NOT_FULL_FILLED'));
         }else{
             $scope.signInLoading = true;
@@ -36,7 +40,6 @@ angular.module('aroundev.user.signin',[
                 $state.transitionTo("index");
             });
         }
-
     };
 
 }).directive('passwordConfirmationValidation', function() {

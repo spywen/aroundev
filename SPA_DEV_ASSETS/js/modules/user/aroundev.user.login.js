@@ -12,7 +12,6 @@ angular.module('aroundev.user.login', [
         url:'/login',
         templateUrl: '/app/js/modules/user/view/login.html',
         controller: 'loginCtrl',
-        authenticate: false,
         hasRoles:[],
         hasNotRoles:['AUTHENTICATED']
     });

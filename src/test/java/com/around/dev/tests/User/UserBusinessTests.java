@@ -116,7 +116,7 @@ public class UserBusinessTests {
         SecurityContextHolder.getContext().setAuthentication(null);
 
         UserConnectedProfile userConnectedProfile = userBusiness.getUserConnectedProfile();
-        Assert.assertSame("", userConnectedProfile.getUsername());
+        Assert.assertSame("", userConnectedProfile.getLogin());
         Assert.assertSame(0, userConnectedProfile.getRoles().size());
     }
 
@@ -125,7 +125,7 @@ public class UserBusinessTests {
         Mockito.when(userRepository.findByLogin("admin")).thenReturn(admin);
 
         UserConnectedProfile userConnectedProfile = userBusiness.getUserConnectedProfile();
-        Assert.assertSame(admin.getLogin(), userConnectedProfile.getUsername());
+        Assert.assertSame(admin.getLogin(), userConnectedProfile.getLogin());
         Assert.assertSame(admin.getRoles().size(), userConnectedProfile.getRoles().size());
     }
     //endregion

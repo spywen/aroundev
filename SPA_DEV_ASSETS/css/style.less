@@ -18,19 +18,46 @@ body{
 }
 
 //View switch animation
-.view-animation{
+/*.view-animation{
   &.ng-enter {
     -webkit-transition: .3s linear all; /* Safari/Chrome */
-    -moz-transition: .3s linear all; /* Firefox */
-    -o-transition: .3s linear all; /* Opera */
-    transition: .3s linear all; /* IE10+ and Future Browsers */
+    //-moz-transition: .3s linear all; /* Firefox */
+    //-o-transition: .3s linear all; /* Opera */
+    //transition: .3s linear all; /* IE10+ and Future Browsers */
 
     //Pre animation
-    opacity: 0;
+    //opacity: 0;
 
     //Post animation
-    &.ng-enter-active {
-      opacity: 1;
-    }
+    //&.ng-enter-active {
+      //opacity: 1;
+    //}
+  //}
+//}
+
+.view-animation{
+  /*&.ng-leave{
+    -webkit-animation: bounceOutLeft 1s;
+    animation: bounceOutLeft 1s;
+  }*/
+  /*&.ng-enter-active {
+    opacity: 1;
+  }*/
+  &.ng-enter{
+    -webkit-animation: bounceInLeft 1s;
+    animation: bounceInLeft 1s;
   }
+}
+
+/* centered columns styles */
+.row-centered {
+  text-align:center;
+}
+.col-centered {
+  display:inline-block;
+  float:none;
+  /* reset the text-align */
+  text-align:left;
+  /* inline-block space fix */
+  margin-right:-4px;
 }

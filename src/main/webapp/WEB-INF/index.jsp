@@ -18,6 +18,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="/app/js/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/app/js/lib/angular-toastr/dist/angular-toastr.min.css">
+    <link rel="stylesheet" href="/app/js/lib/animate.css/animate.min.css">
     <link rel="stylesheet" href="/app/js/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/app/js/lib/ladda/dist/ladda-themeless.min.css">
     <!-- endinject -->
@@ -54,6 +55,7 @@
     <script src="/app/js/lib/angular-toastr/dist/angular-toastr.min.js"></script>
     <script src="/app/js/lib/angular-mocks/angular-mocks.js"></script>
     <script src="/app/js/lib/spin.js/spin.js"></script>
+    <script src="/app/js/lib/moment/moment.js"></script>
     <script src="/app/js/lib/ladda/dist/ladda.min.js"></script>
     <script src="/app/js/lib/ladda/dist/spin.min.js"></script>
     <script src="/app/js/lib/angular-ladda/dist/angular-ladda.min.js"></script>

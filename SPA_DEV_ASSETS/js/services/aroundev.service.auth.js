@@ -40,11 +40,11 @@ angular.module('aroundev.service.auth', [
                     if(!_.isUndefined(result.type) && result.type == 'NotConnected'){
                         reject(result);
                     }else{
-                        var rolesNames = [];
+                        var roles = [];
                         _.forEach(result.roles, function(role){
-                            rolesNames.push(role.name);
+                            roles.push(role);
                         });
-                        window.user = {username: result.login, roles:rolesNames};
+                        window.user = {username: result.login, roles:roles};
                         resolve(window.user);
                     }
                 },function(){

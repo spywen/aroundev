@@ -24,7 +24,9 @@
     "angular-mocks": "~1.3.1",
     "angular-ladda": "~0.1.7",
     "ladda": "~0.9.4",
-    "spin.js": "~2.0.1"
+    "spin.js": "~2.0.1",
+    "animate.css": "~3.2.0",
+    "moment": "~2.8.3"
   },
   "overrides": {
     "angular": {
@@ -52,6 +54,16 @@
       "main": [
         "dist/angular-ladda.min.js"
       ]
+    },
+    "animate.css": {
+      "main": {
+        "dev": [
+          "animate.css"
+        ],
+        "prod": [
+          "animate.min.css"
+        ]
+      }
     },
     "ladda": {
       "main": [

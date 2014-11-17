@@ -6,4 +6,5 @@ package com.around.dev.utils.enums;
 public class EnumRole {
     public static final String ADMIN = "ADMIN";
     public static final String USER = "USER";
+    public static final String SUPINFO_NICE = "SUPINFONICE";
 }

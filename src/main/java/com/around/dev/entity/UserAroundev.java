@@ -1,5 +1,6 @@
 package com.around.dev.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -41,6 +42,7 @@ public class UserAroundev {
         this.id = id;return this;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "supinfoid", nullable = true, insertable = true, updatable = true)
     public int getSupinfoid() {
@@ -51,6 +53,7 @@ public class UserAroundev {
         this.supinfoid = supinfoid;return this;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "lastname", nullable = false, insertable = true, updatable = true, length = 50)
     public String getLastname() {
@@ -61,6 +64,7 @@ public class UserAroundev {
         this.lastname = lastname;return this;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "firstname", nullable = false, insertable = true, updatable = true, length = 50)
     public String getFirstname() {
@@ -71,6 +75,7 @@ public class UserAroundev {
         this.firstname = firstname;return this;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "isfemale", nullable = true, insertable = true, updatable = true)
     public Boolean getIsfemale() {
@@ -91,6 +96,7 @@ public class UserAroundev {
         this.login = login;return this;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "email", nullable = false, insertable = true, updatable = true, length = 100)
     public String getEmail() {
@@ -101,6 +107,7 @@ public class UserAroundev {
         this.email = email;return this;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "password", nullable = false, insertable = true, updatable = true, length = 100)
     public String getPassword() {
@@ -111,6 +118,7 @@ public class UserAroundev {
         this.password = password; return this;
     }
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "User_Role", catalog = "aroundev",
             joinColumns = { @JoinColumn(name = "user_id", nullable = false, updatable = false)},
@@ -134,6 +142,7 @@ public class UserAroundev {
         return authList;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "registerdate", nullable = false, insertable = true, updatable = true)
     public Timestamp getRegisterdate() {
@@ -144,6 +153,7 @@ public class UserAroundev {
         this.registerdate = registerdate; return this;
     }
 
+    @JsonIgnore
     @Basic
     @Column(name = "isactive", nullable = false, insertable = true, updatable = true)
     public boolean getIsactive() { return isactive; }

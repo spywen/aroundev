@@ -39,6 +39,19 @@
     "SIGNIN_SUCCESS_REGISTRATION" : "Succès d'inscription. Vous pouvez désormais vous connecter.",
     "SIGNIN_ERROR_NOT_FULL_FILLED" : "Merci de remplir tous les champs avant de soumettre votre demande d'inscription.",
 
+    "APP_EVENTS" : "Evénements",
+    "EVENT_NEW" : "Nouvel événement",
+    "EVENT_NEW_FIELD_PLACEHOLDER_TITLE" : "Titre",
+    "EVENT_NEW_FIELD_PLACEHOLDER_DATE" : "Date",
+    "EVENT_NEW_FIELD_PLACEHOLDER_DESCRIPTION" : "Description",
+    "EVENT_NEW_BUTTON" : "Nouvel événement",
+    "EVENTS_PARTICIPANTS_BUTTON" : "Afficher participants",
+    "EVENTS_REGISTERED" : "Je serai présent",
+    "EVENTS_NOT_REGISTERED" : "Je ne serai pas présent",
+
+    "CREATE" : "Créer",
+    "CANCEL" : "Annuler",
+
     "APP_PLANNING_POKER" : "Planning poker",
 
     "COMMON_ERROR" : "Malheureusement, une erreur est survenue... Si le problème persiste veuillez contacter le support de Aroundev.com",
