@@ -6,7 +6,9 @@ import com.around.dev.entity.Role;
 import com.around.dev.entity.UserAroundev;
 import com.around.dev.repository.EventRepository;
 import com.around.dev.utils.enums.EnumRole;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -48,6 +50,11 @@ public class EventBusinessTests {
 
         //Init injection
         MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void should_have_injection_done() {
+        Assert.assertNotNull(eventBusiness);
     }
 
     /*@Test
