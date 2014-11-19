@@ -7,7 +7,7 @@
 #
 # Hôte: 127.0.0.1 (MySQL 5.6.14)
 # Base de données: aroundev
-# Temps de génération: 2014-11-19 10:22:20 +0000
+# Temps de génération: 2014-11-19 10:42:42 +0000
 # ************************************************************
 
 
@@ -142,7 +142,10 @@ LOCK TABLES `user_role` WRITE;
 INSERT INTO `user_role` (`user_id`, `role_id`)
 VALUES
 	(1,1),
-	(2,1);
+	(2,1),
+	(1,2),
+	(1,3),
+	(1,4);
 
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
