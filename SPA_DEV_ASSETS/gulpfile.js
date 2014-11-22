@@ -104,7 +104,8 @@ gulp.task('default', ['script', 'filesToCopy', 'style']);
 gulp.task('plugins', ['inject', 'images']);
 
 //ALL
-gulp.task('all', ['clean','default','plugins']);
+gulp.task('all', ['default','plugins']);
+
 
 /*--- command 'gulp watch' ---*/
 /*gulp.task('watch', function(){

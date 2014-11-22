@@ -1,5 +1,6 @@
 package com.around.dev.configs;
 
+import com.around.dev.security.AuthentificationListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -48,20 +49,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/admin/**", "/tools/**").authenticated()
             .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/")
-                .failureUrl("/loginFailed")
+                .failureHandler(new AuthentificationListener())
                 .passwordParameter("password")
                 .usernameParameter("login")
             .and()
-                .logout().logoutSuccessUrl("/login?success=1").permitAll()
+                .logout()
+                //.logoutSuccessUrl("/login?success=1")
+                .permitAll()
             .and()
                 .sessionManagement()
-                .maximumSessions(1)
-                .expiredUrl("/loginExpired");
+                .maximumSessions(1);
+                //.expiredUrl("/loginExpired");
 
         http
                 .rememberMe()

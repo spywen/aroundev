@@ -20,7 +20,7 @@ angular.module('aroundev.menu', [
     //user connected
     $scope.activeConnectedMode = function(profile){
         $scope.logged = true;
-        $scope.username = profile.username;
+        $scope.username = profile.login;
     };
 
     //Logout click event
