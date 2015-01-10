@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by laurent on 23/07/2014.
  */
 @Entity
-@Table(name = "Role", schema = "", catalog = "aroundev")
+@Table(name = "ROLE")
 public class Role {
     private int id;
     private String name;
@@ -14,7 +14,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "roleId")
     @SequenceGenerator(name = "roleId", sequenceName = "ROLEID")
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 5, precision = 0)
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true, length = 5, precision = 0)
     public int getId() {
         return id;
     }
@@ -24,7 +24,7 @@ public class Role {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 15, precision = 0)
+    @Column(name = "NAME", nullable = false, insertable = true, updatable = true, length = 15, precision = 0)
     public String getName() {
         return name;
     }

@@ -7,7 +7,7 @@ import java.security.Timestamp;
  * Created by laurent on 26/07/2014.
  */
 @Entity
-@Table(name = "persistent_logins", schema = "", catalog = "aroundev")
+@Table(name = "PERSISTENT_LOGINS")
 public class persistent_logins {
     private String username;
     private String series;
@@ -15,7 +15,7 @@ public class persistent_logins {
     private Timestamp last_used;
 
     @Basic
-    @Column(name = "username", nullable = false, insertable = true, updatable = true, length = 64, precision = 0)
+    @Column(name = "USERNAME", nullable = false, insertable = true, updatable = true, length = 64, precision = 0)
     public String getUsername() {
         return username;
     }
@@ -25,7 +25,7 @@ public class persistent_logins {
     }
 
     @Id
-    @Column(name = "series", nullable = false, insertable = true, updatable = true, length = 64, precision = 0)
+    @Column(name = "SERIES", nullable = false, insertable = true, updatable = true, length = 64, precision = 0)
     public String getSeries() {
         return series;
     }
@@ -35,7 +35,7 @@ public class persistent_logins {
     }
 
     @Basic
-    @Column(name = "token", nullable = false, insertable = true, updatable = true, length = 64, precision = 0)
+    @Column(name = "TOKEN", nullable = false, insertable = true, updatable = true, length = 64, precision = 0)
     public String getToken() {
         return token;
     }
@@ -45,7 +45,7 @@ public class persistent_logins {
     }
 
     @Basic
-    @Column(name = "last_used", nullable = false, insertable = true, updatable = true)
+    @Column(name = "LAST_USED", nullable = false, insertable = true, updatable = true)
     public Timestamp getLast_used() {
         return last_used;
     }
