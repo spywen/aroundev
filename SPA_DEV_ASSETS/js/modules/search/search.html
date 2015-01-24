@@ -1,17 +1,50 @@
-
 <div class="row" id="events_search">
     <div class="col-sm-6 col-md-6 col-md-offset-4 col-sm-offset-3">
         <form class="form-inline">
             <div class="form-group" ng-controller="CollapseDemoCtrl">
 
                 <input type="search" class="form-control" id="searchInput" placeholder="Enter your search">
-                <button type="button" class="btn btn-default"  ng-click="isCollapsed = !isCollapsed" ><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+                <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><span
+                        class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
                 <input type="submit" class="btn btn-primary" value="Search">
-                <div collapse="isCollapsed" >
 
+                <div collapse="isCollapsed">
+
+                <div class="input-group datepicker_row col-md-12">
+                        <div ng-controller="beginDateCtrl" class="col-md-6">
+                            <p class="input-group">
+                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt"
+                                       is-open="opened"
+                                       min-date="minDate" datepicker-options="dateOptions"
+                                       date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
+                                        <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open($event)">
+                                                    <i class="glyphicon glyphicon-calendar"></i>
+                                                </button>
+                                        </span>
+                            </p>
+                        </div>
+
+
+
+                    <div ng-controller="endDateCtrl" class="col-md-6">
+                        <p class="input-group">
+                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt"
+                                   is-open="opened"
+                                   min-date="minDate" datepicker-options="dateOptions"
+                                   date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
+                                        <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open($event)">
+                                                    <i class="glyphicon glyphicon-calendar"></i>
+                                                </button>
+                                        </span>
+                        </p>
+                    </div>
                 </div>
 
+                </div>
             </div>
+
         </form>
 
 
