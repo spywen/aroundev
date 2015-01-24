@@ -1,4 +1,7 @@
 /**
+ * Created by Antonin on 10/01/2015.
+ */
+/**
  * Created by laurent on 07/11/14.
  */
 angular.module('aroundev.events', [
@@ -6,43 +9,15 @@ angular.module('aroundev.events', [
     'ui.bootstrap',
     'ui.router',
     'toastr',
-    'aroundev.service.events'
+    'aroundev.service.events',
+    'aroundev.search'
 ])
-.config(function($stateProvider){
-    $stateProvider.state('events', {
-        url:'/events',
-        templateUrl: '/app/js/modules/events/view/events.html',
-        controller: 'eventsCtrl',
-        hasRoles:['AUTHENTICATED'],
-        hasNotRoles:[]
-    });
-}).controller('eventsCtrl',function($scope, $modal, eventsService, toastr, $translate){
-    $scope.oneAtATime = true;
-    $scope.events = [];
+    .config(function($stateProvider){
+        $stateProvider.state('events', {
+            url:'/events',
+            templateUrl: '/app/js/modules/Events/view/events.html'
 
-    eventsService.findAll().then(function(result){
-        $scope.events = result;
-    },function(){
-        toastr.error($translate.instant('COMMON_ERROR'));
-        return false;
     });
 
-    $scope.openNewEventModal = function () {
+    });
 
-        $modal.open({
-            templateUrl: 'newEventModal.html',
-            controller: 'newEventModalCtrl'
-        }).result.then(function () {
-            //created
-            eventsService.findAll().then(function(result){
-                $scope.events = result;
-            },function(){
-                toastr.error($translate.instant('COMMON_ERROR'));
-                return false;
-            });
-        }, function () {
-            //cancel
-        });
-
-    };
-});
