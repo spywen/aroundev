@@ -15,7 +15,7 @@ angular.module('aroundev.events', [
     .config(function($stateProvider){
         $stateProvider.state('events', {
             url:'/events',
-            templateUrl: '/app/js/modules/Events/view/events.html'
+            templateUrl: '/app/js/modules/events/view/events.html'
 
     });
 

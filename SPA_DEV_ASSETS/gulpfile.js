@@ -108,8 +108,8 @@ gulp.task('all', ['default','plugins']);
 
 
 /*--- command 'gulp watch' ---*/
-/*gulp.task('watch', function(){
-    gulp.watch(styleLocation, ['style']);
-    gulp.watch(scriptLocation, ['script']);
-    gulp.watch(pageLocation, ['page']);
-});*/
+gulp.task('watch', function(){
+    gulp.watch(stylesLocation, ['style']);
+    gulp.watch(scriptsLocation, ['script']);
+    gulp.watch(filesToCopyLocation, ['filesToCopy']);
+});
