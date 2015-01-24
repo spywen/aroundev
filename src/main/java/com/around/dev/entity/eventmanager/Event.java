@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  * Created by laurent on 10/11/14.
  */
 @Entity
-@Table(name = "event", schema = "", catalog = "aroundev")
+@Table(name = "EVENT")
 public class Event {
     private int id;
     private String title;
@@ -19,7 +19,7 @@ public class Event {
     private UserAroundev owner;
 
     @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -29,7 +29,7 @@ public class Event {
     }
 
     @Basic
-    @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "TITLE", nullable = false, insertable = true, updatable = true, length = 100)
     public String getTitle() {
         return title;
     }
@@ -39,7 +39,7 @@ public class Event {
     }
 
     @Basic
-    @Column(name = "description", nullable = true, insertable = true, updatable = true, length = 500)
+    @Column(name = "DESCRIPTION", nullable = true, insertable = true, updatable = true, length = 500)
     public String getDescription() {
         return description;
     }
@@ -49,7 +49,7 @@ public class Event {
     }
 
     @Basic
-    @Column(name = "startdate", nullable = false, insertable = true, updatable = true)
+    @Column(name = "STARTDATE", nullable = false, insertable = true, updatable = true)
     public Timestamp getStartdate() {
         return startdate;
     }
@@ -59,7 +59,7 @@ public class Event {
     }
 
     @Basic
-    @Column(name = "creationdate", nullable = false, insertable = true, updatable = true)
+    @Column(name = "CREATIONDATE", nullable = false, insertable = true, updatable = true)
     public Timestamp getCreationdate() {
         return creationdate;
     }
@@ -69,7 +69,7 @@ public class Event {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "owner", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "OWNER", referencedColumnName = "ID", nullable = false)
     public UserAroundev getOwner() {
         return owner;
     }

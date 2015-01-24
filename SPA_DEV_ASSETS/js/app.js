@@ -10,9 +10,8 @@ angular.module('aroundev', [
     'aroundev.index',
     'aroundev.user',
     'aroundev.events',
-    'aroundev.search'
-
-
+    'aroundev.search',
+    'aroundev.test'
 
 ])
 .config(function($translateProvider, $locationProvider){

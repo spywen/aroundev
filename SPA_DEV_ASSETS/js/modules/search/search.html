@@ -1,0 +1,19 @@
+
+<div class="row" id="events_search">
+    <div class="col-sm-6 col-md-6 col-md-offset-4 col-sm-offset-3">
+        <form class="form-inline">
+            <div class="form-group" ng-controller="CollapseDemoCtrl">
+
+                <input type="search" class="form-control" id="searchInput" placeholder="Enter your search">
+                <button type="button" class="btn btn-default"  ng-click="isCollapsed = !isCollapsed" ><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+                <input type="submit" class="btn btn-primary" value="Search">
+                <div collapse="isCollapsed" >
+
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+</div>

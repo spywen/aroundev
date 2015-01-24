@@ -15,7 +15,7 @@ import java.util.Set;
  * Created by laurent on 19/07/2014.
  */
 @Entity
-@Table(name = "user", schema = "", catalog = "aroundev")
+@Table(name = "USER")
 public class UserAroundev {
     private int id;
     private String lastname;
@@ -33,7 +33,7 @@ public class UserAroundev {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "userId")
     @SequenceGenerator(name = "userId", sequenceName = "USERID")
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -44,7 +44,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "supinfoid", nullable = true, insertable = true, updatable = true)
+    @Column(name = "SUPINFOID", nullable = true, insertable = true, updatable = true)
     public int getSupinfoid() {
         return supinfoid;
     }
@@ -55,7 +55,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "lastname", nullable = false, insertable = true, updatable = true, length = 50)
+    @Column(name = "LASTNAME", nullable = false, insertable = true, updatable = true, length = 50)
     public String getLastname() {
         return lastname;
     }
@@ -66,7 +66,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "firstname", nullable = false, insertable = true, updatable = true, length = 50)
+    @Column(name = "FIRSTNAME", nullable = false, insertable = true, updatable = true, length = 50)
     public String getFirstname() {
         return firstname;
     }
@@ -77,7 +77,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "isfemale", nullable = true, insertable = true, updatable = true)
+    @Column(name = "ISFEMALE", nullable = true, insertable = true, updatable = true)
     public Boolean getIsfemale() {
         return isfemale;
     }
@@ -87,7 +87,7 @@ public class UserAroundev {
     }
 
     @Basic
-    @Column(name = "login", nullable = false, insertable = true, updatable = true, length = 50)
+    @Column(name = "LOGIN", nullable = false, insertable = true, updatable = true, length = 50)
     public String getLogin() {
         return login;
     }
@@ -98,7 +98,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "email", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "EMAIL", nullable = false, insertable = true, updatable = true, length = 100)
     public String getEmail() {
         return email;
     }
@@ -109,7 +109,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "password", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "PASSWORD", nullable = false, insertable = true, updatable = true, length = 100)
     public String getPassword() {
         return password;
     }
@@ -120,7 +120,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "User_Role", catalog = "aroundev",
+    @JoinTable(name = "USER_ROLE",
             joinColumns = { @JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
     public Set<Role> getRoles() {
@@ -144,7 +144,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "registerdate", nullable = false, insertable = true, updatable = true)
+    @Column(name = "REGISTERDATE", nullable = false, insertable = true, updatable = true)
     public Timestamp getRegisterdate() {
         return registerdate;
     }
@@ -155,7 +155,7 @@ public class UserAroundev {
 
     @JsonIgnore
     @Basic
-    @Column(name = "isactive", nullable = false, insertable = true, updatable = true)
+    @Column(name = "ISACTIVE", nullable = false, insertable = true, updatable = true)
     public boolean getIsactive() { return isactive; }
 
     public UserAroundev setIsactive(boolean isactive) { this.isactive = isactive; return this; }
