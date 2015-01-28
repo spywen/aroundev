@@ -2,8 +2,10 @@
 ROOT.iml
 target/
 
-SPA_DEV_ASSETS/bower_components/
-SPA_DEV_ASSETS/node_modules/
+dev/bower_components/
+dev/node_modules/
+
+src/main/webapp/app/
 
 #I commit a first version of the project with files they didn't need to be push on the git repo...
 #After that I have created a .gitignore file
