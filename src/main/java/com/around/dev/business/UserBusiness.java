@@ -41,7 +41,7 @@ public class UserBusiness {
             try{
                 User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 String name = user.getUsername();
-                return userRepository.findByLogin(name);
+                return userRepository.findByEmail(name);
             }catch (Exception e){
                 throw new UserNotFoundException("NotConnected","user not connected");
             }
@@ -60,7 +60,7 @@ public class UserBusiness {
             for(Role role : connectedUserProfile.getRoles()){
                 roles.add(role.getName());
             }
-            return new UserConnectedProfile(connectedUserProfile.getLogin(),roles);
+            return new UserConnectedProfile(connectedUserProfile.getPublicname(),roles);
         }catch (UserNotFoundException e){
             return new UserConnectedProfile("",new ArrayList<String>());
         }catch (Exception e){
@@ -78,15 +78,14 @@ public class UserBusiness {
         ShaPasswordEncoder encoder = new ShaPasswordEncoder(256);
 
         UserAroundev user = new UserAroundev()
-                .setLogin(newUser.getLogin())
+                .setPublicname(newUser.getPublicname())
                 .setEmail(newUser.getEmail())
                 .setFirstname(newUser.getFirstname())
                 .setLastname(newUser.getLastname())
                 .setIsfemale(newUser.getIsfemale())
                 .setPassword(encoder.encodePassword(newUser.getPassword(), null))
                 .setIsactive(true)
-                .setRegisterdate(new Timestamp(new Date().getTime()))
-                .setSupinfoid(newUser.getSupinfoId());
+                .setRegisterdate(new Timestamp(new Date().getTime()));
         user = userRepository.saveAndFlush(user);
 
         //Attribute role
@@ -94,18 +93,6 @@ public class UserBusiness {
         userRepository.save(user);
 
         return user.getId();
-    }
-
-    /**
-     * Define if the a supinfo id is already registered
-     * @param supinfoId
-     * @return
-     */
-    public Boolean existSupinfoId(int supinfoId){
-        if(userRepository.countBySupinfoid(supinfoId) == 0){
-            return false;
-        }
-        return true;
     }
 
     /**
@@ -125,8 +112,8 @@ public class UserBusiness {
      * @param login
      * @return
      */
-    public Boolean existLogin(String login){
-        if(userRepository.countByLogin(login) == 0){
+    public Boolean existPublicname(String login){
+        if(userRepository.countByPublicname(login) == 0){
             return false;
         }
         return true;

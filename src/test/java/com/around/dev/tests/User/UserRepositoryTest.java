@@ -38,8 +38,7 @@ public class UserRepositoryTest {
     public void should_add_user(){
         UserAroundev newUser = new UserAroundev().setEmail("newuser@aroundev.com").setFirstname("NewUSer")
                 .setIsactive(true).setIsfemale(false).setLastname("Aroundev")
-                .setLogin("newusertest").setPassword("test").setRegisterdate(new Timestamp(System.currentTimeMillis()))
-                .setSupinfoid(5);
+                .setPublicname("publicname").setPassword("test").setRegisterdate(new Timestamp(System.currentTimeMillis()));
 
         userRepository.save(newUser);
 

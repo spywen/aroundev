@@ -21,10 +21,10 @@ public class UserSecurityBusiness implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         try {
-            UserAroundev domainUser = userRepository.findByLogin(s);
+            UserAroundev domainUser = userRepository.findByEmail(s);
 
             return new User(
-                    domainUser.getLogin(),
+                    domainUser.getEmail(),
                     domainUser.getPassword(),
                     domainUser.getIsactive(),
                     true,//domainUser.isAccountNonExpired(),

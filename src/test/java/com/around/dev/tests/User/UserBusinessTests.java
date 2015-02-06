@@ -1,4 +1,4 @@
-package com.around.dev.tests.user;
+package com.around.dev.tests.User;
 
 import com.around.dev.business.UserBusiness;
 import com.around.dev.entity.Role;
@@ -56,6 +56,7 @@ public class UserBusinessTests {
         admin.setFirstname("admin");
         admin.setEmail("admin@admin.com");
         admin.setIsactive(true);
+        admin.setPublicname("admin");
         Role adminRole = new Role();
         adminRole.setId(1);
         adminRole.setName(EnumRole.ADMIN);
@@ -75,9 +76,9 @@ public class UserBusinessTests {
     public void findByLogin() throws UserNotFoundException {
         UserAroundev lolo = new UserAroundev();
         lolo.setFirstname("lolo");
-        Mockito.when(userRepository.findByLogin("lolo")).thenReturn(lolo);
+        Mockito.when(userRepository.findByPublicname("lolo")).thenReturn(lolo);
 
-        UserAroundev userReturned = userRepository.findByLogin("lolo");
+        UserAroundev userReturned = userRepository.findByPublicname("lolo");
         Assert.assertSame(userReturned.getFirstname(), lolo.getFirstname());
     }
     //endregion
@@ -91,7 +92,7 @@ public class UserBusinessTests {
 
     @Test
     public void getConnectedUser_NominalCase() throws UserNotFoundException {
-        Mockito.when(userRepository.findByLogin("admin")).thenReturn(admin);
+        Mockito.when(userRepository.findByEmail("admin")).thenReturn(admin);
 
         UserAroundev userReturned = userBusiness.getConnectedUser();
         Assert.assertSame(userReturned, admin);
@@ -116,16 +117,16 @@ public class UserBusinessTests {
         SecurityContextHolder.getContext().setAuthentication(null);
 
         UserConnectedProfile userConnectedProfile = userBusiness.getUserConnectedProfile();
-        Assert.assertSame("", userConnectedProfile.getLogin());
+        Assert.assertSame("", userConnectedProfile.getPublicname());
         Assert.assertSame(0, userConnectedProfile.getRoles().size());
     }
 
     @Test
     public void getUserConnectedProfile_Connected(){
-        Mockito.when(userRepository.findByLogin("admin")).thenReturn(admin);
+        Mockito.when(userRepository.findByEmail("admin")).thenReturn(admin);
 
         UserConnectedProfile userConnectedProfile = userBusiness.getUserConnectedProfile();
-        Assert.assertSame(admin.getLogin(), userConnectedProfile.getLogin());
+        Assert.assertSame(admin.getPublicname(), userConnectedProfile.getPublicname());
         Assert.assertSame(admin.getRoles().size(), userConnectedProfile.getRoles().size());
     }
     //endregion

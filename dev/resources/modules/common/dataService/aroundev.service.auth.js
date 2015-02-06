@@ -13,7 +13,7 @@ angular.module('aroundev.service.auth', [
 
     this.login = function(login,password){
         return $q(function(resolve, reject){
-            Restangular.one('login').customPOST("login="+login+"&password="+password, undefined, undefined, {'Content-Type': 'application/x-www-form-urlencoded'}).then(function(){
+            Restangular.one('login').customPOST("email="+login+"&password="+password, undefined, undefined, {'Content-Type': 'application/x-www-form-urlencoded'}).then(function(){
                 resolve(true);
             },function(){
                 reject(false);

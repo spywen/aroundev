@@ -17,13 +17,11 @@ public class UserSubscriptionInformations {
     @NotNull
     private Boolean isfemale;
     @NotEmpty @Size(min=4, max=20)
-    private String login;
+    private String publicname;
     @NotEmpty @Email @Size(min=1, max=100)
     private String email;
     @NotEmpty @Size(min=5, max=30)
     private String password;
-
-    private int supinfoId;
 
     public String getPassword() {
         return password;
@@ -58,12 +56,12 @@ public class UserSubscriptionInformations {
         this.isfemale = isfemale; return this;
     }
 
-    public String getLogin() {
-        return login;
+    public String getPublicname() {
+        return publicname;
     }
 
-    public UserSubscriptionInformations setLogin(String login) {
-        this.login = login; return this;
+    public UserSubscriptionInformations setPublicname(String publicname) {
+        this.publicname = publicname; return this;
     }
 
     public String getEmail() {
@@ -72,13 +70,5 @@ public class UserSubscriptionInformations {
 
     public UserSubscriptionInformations setEmail(String email) {
         this.email = email; return this;
-    }
-
-    public int getSupinfoId() {
-        return supinfoId;
-    }
-
-    public void setSupinfoId(int supinfoId) {
-        this.supinfoId = supinfoId;
     }
 }

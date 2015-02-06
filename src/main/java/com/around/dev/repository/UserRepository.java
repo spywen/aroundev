@@ -8,9 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserRepository extends JpaRepository<UserAroundev, Integer>{
     long countById(int id);
-    UserAroundev findByLogin(String login);
+    UserAroundev findByPublicname(String login);
     UserAroundev findByEmail(String email);
-    long countBySupinfoid(int supinfoid);
     long countByEmail(String email);
-    long countByLogin(String login);
+    long countByPublicname(String publicname);
 }

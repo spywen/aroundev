@@ -2,13 +2,13 @@
 <dataset>
 
     <USER ID="1" EMAIL="test@aroudev.com" FIRSTNAME="Test" ISACTIVE="true" ISFEMALE="false" LASTNAME="Aroundev"
-          LOGIN="aroundtest" PASSWORD="test" REGISTERDATE="2013-10-05 10:15:26" SUPINFOID="1" />
+          PUBLICNAME="aroundtest" PASSWORD="test" REGISTERDATE="2013-10-05 10:15:26" />
 
     <USER ID="2" EMAIL="test2@aroudev.com" FIRSTNAME="Test2" ISACTIVE="true" ISFEMALE="false" LASTNAME="Aroundev"
-          LOGIN="aroundtest2" PASSWORD="test" REGISTERDATE="2013-10-05 10:15:26" SUPINFOID="1" />
+          PUBLICNAME="aroundtest2" PASSWORD="test" REGISTERDATE="2013-10-05 10:15:26"/>
 
     <USER ID="3" EMAIL="admin@aroudev.com" FIRSTNAME="Admin" ISACTIVE="true" ISFEMALE="false" LASTNAME="Aroundev"
-          LOGIN="admin" PASSWORD="admin" REGISTERDATE="2013-10-05 10:15:26" SUPINFOID="1" />
+          PUBLICNAME="admin" PASSWORD="admin" REGISTERDATE="2013-10-05 10:15:26" />
 
 
     <!-- Roles -->

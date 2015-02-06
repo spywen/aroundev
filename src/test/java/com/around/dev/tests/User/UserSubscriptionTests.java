@@ -1,4 +1,4 @@
-package com.around.dev.tests.user;
+package com.around.dev.tests.User;
 
 import com.around.dev.business.UserBusiness;
 import com.around.dev.entity.Role;
@@ -38,7 +38,7 @@ public class UserSubscriptionTests {
                 .setFirstname("firstname")
                 .setLastname("lastname")
                 .setIsfemale(true)
-                .setLogin("login")
+                .setPublicname("publicname")
                 .setPassword("cisco");
 
         Mockito.when(userRepository.saveAndFlush(Matchers.any(UserAroundev.class)))

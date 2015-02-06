@@ -31,18 +31,13 @@ public class UserControllerApi {
         return userBusiness.signIn(newUser);
     }
 
-    @RequestMapping(value = "/exist/login/{login}", method = RequestMethod.GET)
-    public Boolean existLogin(@PathVariable String login){
-        return userBusiness.existLogin(login);
+    @RequestMapping(value = "/exist/publicname/{publicname}", method = RequestMethod.GET)
+    public Boolean existPublicname(@PathVariable String publicname){
+        return userBusiness.existPublicname(publicname);
     }
 
     @RequestMapping(value = "/exist/email", method = RequestMethod.POST)
-    public Boolean existSupinfoId(@RequestBody EmailFacade email){
+    public Boolean existEmail(@RequestBody EmailFacade email){
         return userBusiness.existEmail(email);
-    }
-
-    @RequestMapping(value = "/exist/supinfoId/{supinfoId}", method = RequestMethod.GET)
-    public Boolean existSupinfoId(@PathVariable int supinfoId){
-        return userBusiness.existSupinfoId(supinfoId);
     }
 }

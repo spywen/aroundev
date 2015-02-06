@@ -21,14 +21,12 @@ public class UserAroundev {
     private String lastname;
     private String firstname;
     private Boolean isfemale;
-    private String login;
+    private String publicname;
     private String email;
     private String password;
     private Timestamp registerdate;
     private Boolean isactive;
     private Set<Role> roles;
-    //Supinfo
-    private int supinfoid;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "userId")
@@ -40,17 +38,6 @@ public class UserAroundev {
 
     public UserAroundev setId(int id) {
         this.id = id;return this;
-    }
-
-    @JsonIgnore
-    @Basic
-    @Column(name = "SUPINFOID", nullable = true, insertable = true, updatable = true)
-    public int getSupinfoid() {
-        return supinfoid;
-    }
-
-    public UserAroundev setSupinfoid(int supinfoid) {
-        this.supinfoid = supinfoid;return this;
     }
 
     @JsonIgnore
@@ -87,13 +74,13 @@ public class UserAroundev {
     }
 
     @Basic
-    @Column(name = "LOGIN", nullable = false, insertable = true, updatable = true, length = 50)
-    public String getLogin() {
-        return login;
+    @Column(name = "PUBLICNAME", nullable = false, insertable = true, updatable = true, length = 50)
+    public String getPublicname() {
+        return publicname;
     }
 
-    public UserAroundev setLogin(String login) {
-        this.login = login;return this;
+    public UserAroundev setPublicname(String publicname) {
+        this.publicname = publicname;return this;
     }
 
     @JsonIgnore
@@ -173,7 +160,7 @@ public class UserAroundev {
         if (isactive != null ? !isactive.equals(userAroundev.isactive) : userAroundev.isactive != null) return false;
         if (isfemale != null ? !isfemale.equals(userAroundev.isfemale) : userAroundev.isfemale != null) return false;
         if (lastname != null ? !lastname.equals(userAroundev.lastname) : userAroundev.lastname != null) return false;
-        if (login != null ? !login.equals(userAroundev.login) : userAroundev.login != null) return false;
+        if (publicname != null ? !publicname.equals(userAroundev.publicname) : userAroundev.publicname != null) return false;
         if (password != null ? !password.equals(userAroundev.password) : userAroundev.password != null) return false;
         if (registerdate != null ? !registerdate.equals(userAroundev.registerdate) : userAroundev.registerdate != null) return false;
         if (roles != null ? !roles.equals(userAroundev.roles) : userAroundev.roles != null) return false;
@@ -187,7 +174,7 @@ public class UserAroundev {
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (isfemale != null ? isfemale.hashCode() : 0);
-        result = 31 * result + (login != null ? login.hashCode() : 0);
+        result = 31 * result + (publicname != null ? publicname.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (registerdate != null ? registerdate.hashCode() : 0);
