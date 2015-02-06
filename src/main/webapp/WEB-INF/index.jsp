@@ -16,11 +16,11 @@
     <link rel="icon" type="image/png" href="app/img/favicon.png" />
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="/app/lib/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="/app/lib/angular-toastr/dist/angular-toastr.css">
-    <link rel="stylesheet" href="/app/lib/animate.css/animate.css">
-    <link rel="stylesheet" href="/app/lib/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/app/lib/ladda/dist/ladda-themeless.min.css">
+    <link rel="stylesheet" href="/app/lib//font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/app/lib//angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="/app/lib//animate.css/animate.css">
+    <link rel="stylesheet" href="/app/lib//bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/app/lib//ladda/dist/ladda-themeless.min.css">
     <!-- endinject -->
 
     <link rel="stylesheet" href="/app/css/all.css">
@@ -36,26 +36,26 @@
 
 
     <!-- inject:js -->
-    <script src="/app/lib/lodash/dist/lodash.compat.js"></script>
-    <script src="/app/lib/angular/angular.js"></script>
-    <script src="/app/lib/angular-bootstrap/ui-bootstrap.js"></script>
-    <script src="/app/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/app/lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/app/lib/restangular/dist/restangular.js"></script>
-    <script src="/app/lib/jquery/dist/jquery.js"></script>
-    <script src="/app/lib/angular-cookies/angular-cookies.js"></script>
-    <script src="/app/lib/angular-translate/angular-translate.js"></script>
-    <script src="/app/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="/app/lib/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-    <script src="/app/lib/angular-translate-loader-url/angular-translate-loader-url.js"></script>
-    <script src="/app/lib/angular-animate/angular-animate.js"></script>
-    <script src="/app/lib/angular-toastr/dist/angular-toastr.js"></script>
-    <script src="/app/lib/angular-mocks/angular-mocks.js"></script>
-    <script src="/app/lib/spin.js/spin.js"></script>
-    <script src="/app/lib/moment/moment.js"></script>
-    <script src="/app/lib/ladda/dist/ladda.min.js"></script>
-    <script src="/app/lib/ladda/dist/spin.min.js"></script>
-    <script src="/app/lib/angular-ladda/dist/angular-ladda.min.js"></script>
+    <script src="/app/lib//lodash/dist/lodash.compat.js"></script>
+    <script src="/app/lib//angular/angular.js"></script>
+    <script src="/app/lib//angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="/app/lib//angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/app/lib//angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/app/lib//restangular/dist/restangular.js"></script>
+    <script src="/app/lib//jquery/dist/jquery.js"></script>
+    <script src="/app/lib//angular-cookies/angular-cookies.js"></script>
+    <script src="/app/lib//angular-translate/angular-translate.js"></script>
+    <script src="/app/lib//angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="/app/lib//angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="/app/lib//angular-translate-loader-url/angular-translate-loader-url.js"></script>
+    <script src="/app/lib//angular-animate/angular-animate.js"></script>
+    <script src="/app/lib//angular-toastr/dist/angular-toastr.js"></script>
+    <script src="/app/lib//angular-mocks/angular-mocks.js"></script>
+    <script src="/app/lib//spin.js/spin.js"></script>
+    <script src="/app/lib//moment/moment.js"></script>
+    <script src="/app/lib//ladda/dist/ladda.min.js"></script>
+    <script src="/app/lib//ladda/dist/spin.min.js"></script>
+    <script src="/app/lib//angular-ladda/dist/angular-ladda.min.js"></script>
     <!-- endinject -->
 
     <script>

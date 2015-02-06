@@ -14,9 +14,7 @@ var gulp = require('gulp'),//GULP !!!
     jshint = require('gulp-jshint'),//JS quality tools
     htmlify = require('gulp-angular-htmlify'),//add 'data-' before all angular attributes
     ngHtml2Js = require("gulp-ng-html2js"),//Cache of view
-    image = require('gulp-image'),//ng-controller => data-ng-controller
     clean = require('gulp-clean'),//Delete files and folders
-    notify = require('gulp-notify'),
     replace = require('gulp-replace-task');//Replace by regex content of files
 
 
@@ -132,7 +130,6 @@ gulp.task('inject' ,function () {
 //Images
 gulp.task('image', function(){
     gulp.src(imagesLocation)
-        .pipe(image())
         .pipe(gulp.dest(imagesDestination));
 });
 
